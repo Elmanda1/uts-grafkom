@@ -1,0 +1,55 @@
+{
+    "name": "Cube",
+    "vertices": [
+        // Wajah depan (z=0.5)
+        {"position": [-0.5, -0.5, 0.5], "normal": [0, 0, 1], "uv": [0, 0]},
+        {"position": [0.5, -0.5, 0.5], "normal": [0, 0, 1], "uv": [1, 0]},
+        {"position": [0.5, 0.5, 0.5], "normal": [0, 0, 1], "uv": [1, 1]},
+        {"position": [-0.5, 0.5, 0.5], "normal": [0, 0, 1], "uv": [0, 1]},
+
+        // Wajah belakang (z=-0.5)
+        {"position": [-0.5, -0.5, -0.5], "normal": [0, 0, -1], "uv": [1, 0]},
+        {"position": [0.5, -0.5, -0.5], "normal": [0, 0, -1], "uv": [0, 0]},
+        {"position": [0.5, 0.5, -0.5], "normal": [0, 0, -1], "uv": [0, 1]},
+        {"position": [-0.5, 0.5, -0.5], "normal": [0, 0, -1], "uv": [1, 1]},
+
+        // Wajah atas (y=0.5)
+        {"position": [-0.5, 0.5, 0.5], "normal": [0, 1, 0], "uv": [0, 1]},
+        {"position": [0.5, 0.5, 0.5], "normal": [0, 1, 0], "uv": [1, 1]},
+        {"position": [0.5, 0.5, -0.5], "normal": [0, 1, 0], "uv": [1, 0]},
+        {"position": [-0.5, 0.5, -0.5], "normal": [0, 1, 0], "uv": [0, 0]},
+
+        // Wajah bawah (y=-0.5)
+        {"position": [-0.5, -0.5, 0.5], "normal": [0, -1, 0], "uv": [0, 0]},
+        {"position": [0.5, -0.5, 0.5], "normal": [0, -1, 0], "uv": [1, 0]},
+        {"position": [0.5, -0.5, -0.5], "normal": [0, -1, 0], "uv": [1, 1]},
+        {"position": [-0.5, -0.5, -0.5], "normal": [0, -1, 0], "uv": [0, 1]},
+
+        // Wajah kanan (x=0.5)
+        {"position": [0.5, -0.5, 0.5], "normal": [1, 0, 0], "uv": [0, 0]},
+        {"position": [0.5, -0.5, -0.5], "normal": [1, 0, 0], "uv": [1, 0]},
+        {"position": [0.5, 0.5, -0.5], "normal": [1, 0, 0], "uv": [1, 1]},
+        {"position": [0.5, 0.5, 0.5], "normal": [1, 0, 0], "uv": [0, 1]},
+
+        // Wajah kiri (x=-0.5)
+        {"position": [-0.5, -0.5, 0.5], "normal": [-1, 0, 0], "uv": [1, 0]},
+        {"position": [-0.5, -0.5, -0.5], "normal": [-1, 0, 0], "uv": [0, 0]},
+        {"position": [-0.5, 0.5, -0.5], "normal": [-1, 0, 0], "uv": [0, 1]},
+        {"position": [-0.5, 0.5, 0.5], "normal": [-1, 0, 0], "uv": [1, 1]}
+    ],
+    "polygons": [
+        // Segitiga, bukan quad, karena Plotly Mesh3D bekerja dengan segitiga (i, j, k)
+        // Wajah depan
+        [0, 1, 2], [0, 2, 3],
+        // Wajah belakang
+        [4, 5, 6], [4, 6, 7],
+        // Wajah atas
+        [8, 9, 10], [8, 10, 11],
+        // Wajah bawah
+        [12, 13, 14], [12, 14, 15],
+        // Wajah kanan
+        [16, 17, 18], [16, 18, 19],
+        // Wajah kiri
+        [20, 21, 22], [20, 22, 23]
+    ]
+}

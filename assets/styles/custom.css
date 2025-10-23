@@ -1,0 +1,54 @@
+/* 
+    File CSS Kustom untuk Aplikasi Grafika Komputer.
+    Gunakan file ini untuk menimpa gaya default Streamlit dan menambahkan sentuhan kustom.
+*/
+
+/* Gaya dasar untuk body */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Kustomisasi sidebar */
+.st-emotion-cache-16txtl3 {
+    background-color: #1a1f2b; /* Warna latar belakang sidebar yang lebih gelap */
+}
+
+/* Kustomisasi tombol */
+.stButton>button {
+    border-radius: 8px;
+    border: 1px solid #FF4B4B;
+    color: #FF4B4B;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.stButton>button:hover {
+    background-color: #FF4B4B;
+    color: white;
+    border-color: #FF4B4B;
+}
+
+.stButton>button:focus {
+    box-shadow: 0 0 0 2px rgba(255, 75, 75, 0.5);
+}
+
+/* Layout berbasis kartu untuk perbandingan */
+.card {
+    background-color: #1E2128;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+}
+
+/* Animasi halus */
+* {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Responsif: perkecil padding di layar kecil */
+@media (max-width: 640px) {
+    .stApp {
+        padding: 1rem;
+    }
+}
