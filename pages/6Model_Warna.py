@@ -301,8 +301,6 @@ if section_choice in ["Model Pencahayaan Phong", "Keduanya"]:
             st.metric("Kontribusi", f"{specular_contribution:.1f}%")
             st.markdown(f"Pantulan mengkilap (shininess: {shininess})")
 
-st.markdown("---")
-
 # --- Perbandingan Detail --- #
 with st.expander("**Perbandingan Model Warna**", expanded=False):
     comp_col1, comp_col2, comp_col3 = st.columns(3)
@@ -361,30 +359,6 @@ with st.expander("**Lihat Kode Implementasi**", expanded=False):
             st.code(code_content, language="python")
     except FileNotFoundError:
         st.warning("⚠️ File `algorithms/color_models.py` tidak ditemukan")
-
-st.markdown("---")
-
-# --- Resources Section --- #
-with st.expander("**Sumber Belajar Tambahan**", expanded=False):
-    resource_col1, resource_col2 = st.columns(2)
-    
-    with resource_col1:
-        st.markdown("""
-        **Referensi Teoritis:**
-        - Computer Graphics: Principles and Practice
-        - Phong Reflection Model (1975)
-        - Color Models and Color Spaces
-        - Digital Color Management
-        """)
-    
-    with resource_col2:
-        st.markdown("""
-        **Tutorial Online:**
-        - Wikipedia: Color Models & Phong Reflection
-        - Scratchapixel: Introduction to Shading
-        - LearnOpenGL: Lighting & Colors
-        - Khan Academy: Color Theory
-        """)
 
 # --- Footer --- #
 st.markdown("---")

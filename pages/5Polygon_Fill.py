@@ -485,24 +485,6 @@ def show_polygon_fill_page():
         show_visualization_mode()
 
     st.markdown("---")
-
-    # Advanced / composite section (here we include a small section about combining rules)
-    with st.expander("**Praktik Lanjutan: Menggabungkan Teknik**", expanded=False):
-        st.markdown("""
-        Anda dapat menggabungkan rule (mis. gunakan Winding untuk polygon yang orientasinya penting,
-        lalu gunakan sampling halus untuk estimasi area). Untuk hasil berkualitas produksi, 
-        gunakan teknik scanline span fill atau library geometri (mis. shapely).
-        """)
-
-    st.markdown("---")
-    st.success("""
-    ✅ **Ringkasan:** 
-    - Even-Odd vs Winding berperilaku berbeda pada polygon bersarang. 
-    - Sampling berguna untuk visualisasi/perbandingan.
-    - Untuk hasil render akhir gunakan scanline span fill / draw ke buffer.
-    """)
-
-    st.markdown("---")
     st.markdown("""
     <div style='text-align: center; color: #666; padding: 20px;'>
         <p>💡 <strong>Tips:</strong> Coba kombinasi sampling yang berbeda untuk melihat trade-off akurasi vs performa.</p>

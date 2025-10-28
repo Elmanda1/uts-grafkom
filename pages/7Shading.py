@@ -523,32 +523,6 @@ def gouraud_shading(polygon, vertices, light_color,
     except FileNotFoundError:
         st.warning(" File `algorithms/shading.py` tidak ditemukan")
 
-st.markdown("---")
-
-# --- Resources Section --- #
-with st.expander(" **Sumber Belajar Tambahan**", expanded=False):
-    resource_col1, resource_col2 = st.columns(2)
-    
-    with resource_col1:
-        st.markdown("""
-        **Referensi Teoritis:**
-        - Computer Graphics: Principles and Practice (Foley et al.)
-        - Real-Time Rendering (Akenine-Möller et al.)
-        - Gouraud Shading (1971)
-        - Phong Shading (1975)
-        - Interactive Computer Graphics (Angel & Shreiner)
-        """)
-    
-    with resource_col2:
-        st.markdown("""
-        **Tutorial Online:**
-        - LearnOpenGL: Lighting & Shading
-        - Scratchapixel: Introduction to Shading
-        - Wikipedia: Shading Techniques
-        - Khan Academy: 3D Graphics
-        - Shader Toy: Interactive Shading Demos
-        """)
-
 # --- Footer --- #
 st.markdown("---")
 st.markdown("""

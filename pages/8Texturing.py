@@ -584,7 +584,7 @@ with concept_detail_col2:
 st.markdown("---")
 
 # --- Texture Filtering Detail --- #
-with st.expander("🔍 **Detail Texture Filtering**", expanded=False):
+with st.expander("**Detail Texture Filtering**", expanded=False):
     st.markdown("### Bagaimana Texture Filtering Bekerja")
     
     filtering_col1, filtering_col2 = st.columns(2)
@@ -1350,7 +1350,7 @@ with st.expander(" **Topik Lanjutan: Advanced Texturing**", expanded=False):
 st.markdown("---")
 
 # --- Performance Tips --- #
-with st.expander("⚡ **Optimasi Performa Texturing**", expanded=False):
+with st.expander("**Optimasi Performa Texturing**", expanded=False):
     st.markdown("### Best Practices untuk Efisiensi")
     
     perf_col1, perf_col2 = st.columns(2)
@@ -1435,44 +1435,6 @@ with st.expander("⚡ **Optimasi Performa Texturing**", expanded=False):
         - PIX (DirectX)
         - Xcode Instruments (Metal)
         - Chrome DevTools (WebGL)
-        """)
-
-st.markdown("---")
-
-# --- Resources Section --- #
-with st.expander(" **Sumber Belajar Tambahan**", expanded=False):
-    resource_col1, resource_col2 = st.columns(2)
-    
-    with resource_col1:
-        st.markdown("""
-        **Referensi Teoritis:**
-        - Real-Time Rendering (Akenine-Möller et al.)
-        - Physically Based Rendering (Pharr & Humphreys)
-        - Texture Mapping: A History (Paul Haeberli)
-        - GPU Gems series (NVIDIA)
-        - Computer Graphics: Principles and Practice
-        
-        **Academic Papers:**
-        - "Pyramidal Parametrics" (Williams, 1983) - Mipmaps
-        - "Anisotropic Filtering" (McCormack et al.)
-        - "Least Squares Conformal Maps" (Lévy et al.) - UV unwrapping
-        """)
-    
-    with resource_col2:
-        st.markdown("""
-        **Tutorial Online:**
-        - LearnOpenGL: Textures & Filtering
-        - Substance Academy (PBR workflows)
-        - Blender Guru: UV Unwrapping
-        - 80.lv: Texture creation techniques
-        - Polycount Wiki: Texture baking
-        - CG Cookie: Material authoring
-        
-        **Tools & Software:**
-        - **Creation:** Substance Designer/Painter, Quixel Mixer
-        - **3D Software:** Blender, Maya, 3ds Max
-        - **Baking:** xNormal, Marmoset Toolbag
-        - **Optimization:** Crunch, Basis Universal
         """)
 
 # --- Footer --- #

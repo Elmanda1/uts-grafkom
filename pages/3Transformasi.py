@@ -547,27 +547,6 @@ def show_week2():
         transformasi secara terpisah untuk setiap titik.
         """)
     
-    st.markdown("---")
-    
-    # --- Summary --- #
-    st.success("""
-    ✅ **Ringkasan Minggu 2: Transformasi Geometri 2D**
-    
-    **Konsep Utama:**
-    - Transformasi 2D direpresentasikan menggunakan **matriks 3×3** dengan **koordinat homogen**
-    - Empat transformasi dasar: **Translation, Rotation, Scaling, Shearing**
-    - Transformasi dapat **digabungkan** dengan perkalian matriks (urutan sangat penting!)
-    - Rotasi dan skala terhadap titik sembarang menggunakan **transformasi komposit**
-    
-    **Keuntungan Matriks:**
-    - ✅ Representasi uniform untuk semua transformasi
-    - ✅ Mudah digabungkan dan dikombinasikan
-    - ✅ Efisien untuk komputasi grafika
-    - ✅ Standar industri dalam computer graphics
-    
-    **Selanjutnya:** Minggu 3 - Algoritma Garis (DDA & Bresenham) →
-    """)
-    
     # --- Footer --- #
     st.markdown("---")
     st.markdown("""
