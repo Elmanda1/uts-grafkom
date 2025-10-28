@@ -1,10 +1,3 @@
-"""
-File Konfigurasi Utama untuk Aplikasi Streamlit Grafika Komputer.
-
-File ini berisi semua konstanta, path, dan pengaturan yang digunakan di seluruh aplikasi.
-Tujuannya adalah untuk memusatkan konfigurasi agar mudah dikelola dan diubah.
-"""
-
 from typing import Dict, Any
 
 # -- Konfigurasi Canvas ---------------------------------------------------------
