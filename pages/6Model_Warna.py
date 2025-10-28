@@ -27,7 +27,7 @@ except Exception as e:
 # --- Hero Section --- #
 st.markdown("""
     <div class="header-container">
-        <h1>🌈 Model Warna & Pencahayaan</h1>
+        <h1>Model Warna & Pencahayaan</h1>
         <p class="subtitle">Eksplorasi konversi model warna dan pencahayaan Phong interaktif</p>
     </div>
 """, unsafe_allow_html=True)
@@ -38,7 +38,7 @@ st.markdown("---")
 intro_col1, intro_col2 = st.columns([3, 2])
 
 with intro_col1:
-    st.markdown("### 🎯 Tujuan Pembelajaran")
+    ### Tujuan Pembelajaran
     st.markdown("""
     Pada minggu ini, Anda akan mempelajari konsep fundamental tentang 
     model warna dan pencahayaan dalam grafika komputer:
@@ -69,7 +69,7 @@ with intro_col2:
 st.markdown("---")
 
 # --- Sidebar Kontrol--- #
-st.sidebar.markdown("### ⚙️ Pengaturan")
+st.sidebar.markdown("### Pengaturan")
 section_choice = st.sidebar.selectbox(
     "Pilih Bagian",
     ["Konverter Model Warna", "Model Pencahayaan Phong", "Keduanya"],
@@ -77,15 +77,15 @@ section_choice = st.sidebar.selectbox(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 📊 Informasi")
+st.sidebar.markdown("### Informasi")
 
 # --- Konsep Section --- #
-with st.expander("📖 **Konsep: Model Warna & Pencahayaan**", expanded=False):
+with st.expander("**Konsep: Model Warna & Pencahayaan**", expanded=False):
     concept_col1, concept_col2 = st.columns(2)
     
     with concept_col1:
         st.markdown("""
-        **🎨 Model Warna**
+        **Model Warna**
         
         Model warna adalah cara merepresentasikan dan memanipulasi warna:
         
@@ -100,7 +100,7 @@ with st.expander("📖 **Konsep: Model Warna & Pencahayaan**", expanded=False):
     
     with concept_col2:
         st.markdown("""
-        **💡 Model Pencahayaan Phong**
+        **Model Pencahayaan Phong**
         
         Phong adalah model pencahayaan lokal yang mengkombinasikan:
         
@@ -117,13 +117,13 @@ st.markdown("---")
 
 # --- Bagian 1: Konverter Model Warna ---
 if section_choice in ["Konverter Model Warna", "Keduanya"]:
-    st.markdown("### 🎨 Konverter Model Warna Interaktif")
+    st.markdown("### Konverter Model Warna Interaktif")
     st.info("👇 Pilih warna menggunakan color picker untuk melihat konversi otomatis")
 
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown("#### 📥 Input Warna (RGB)")
+        st.markdown("#### Input Warna (RGB)")
         # Menggunakan color picker untuk input RGB yang mudah
         hex_color = st.color_picker("Pilih warna", "#FF4B4B")
         r, g, b = tuple(int(hex_color.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))
@@ -138,11 +138,11 @@ if section_choice in ["Konverter Model Warna", "Keduanya"]:
         st.markdown(f"**Hex Code:** `{hex_color}`")
 
     with col2:
-        st.markdown("#### 📤 Hasil Konversi")
+        st.markdown("#### Hasil Konversi")
         
         # Konversi ke HSV
         h, s, v = rgb_to_hsv((r, g, b))
-        st.markdown("**🔵 Model HSV (Hue, Saturation, Value)**")
+        st.markdown("**Model HSV (Hue, Saturation, Value)**")
         st.markdown(f"- **Hue:** `{h:.1f}°` (0-360°)")
         st.markdown(f"- **Saturation:** `{s:.2f}` (0-1)")
         st.markdown(f"- **Value:** `{v:.2f}` (0-1)")
@@ -151,14 +151,14 @@ if section_choice in ["Konverter Model Warna", "Keduanya"]:
 
         # Konversi ke CMYK
         c, m, y, k = rgb_to_cmyk((r, g, b))
-        st.markdown("**🔴 Model CMYK (Cyan, Magenta, Yellow, Key)**")
+        st.markdown("**Model CMYK (Cyan, Magenta, Yellow, Key)**")
         st.markdown(f"- **Cyan:** `{c:.2f}` (0-1)")
         st.markdown(f"- **Magenta:** `{m:.2f}` (0-1)")
         st.markdown(f"- **Yellow:** `{y:.2f}` (0-1)")
         st.markdown(f"- **Key (Black):** `{k:.2f}` (0-1)")
 
     # Verifikasi konversi
-    with st.expander("🔍 **Verifikasi Konversi Balik**", expanded=False):
+    with st.expander("**Verifikasi Konversi Balik**", expanded=False):
         ver_col1, ver_col2 = st.columns(2)
         
         with ver_col1:
@@ -183,13 +183,13 @@ if section_choice in ["Konverter Model Warna", "Keduanya"]:
 
 # --- Bagian 2: Demo Pencahayaan Phong ---
 if section_choice in ["Model Pencahayaan Phong", "Keduanya"]:
-    st.markdown("### 💡 Model Pencahayaan Phong")
-    st.info("🎚️ Geser slider untuk melihat bagaimana komponen Ambient, Diffuse, dan Specular mempengaruhi warna akhir bola")
+    st.markdown("### Model Pencahayaan Phong")
+    st.info("Geser slider untuk melihat bagaimana komponen Ambient, Diffuse, dan Specular mempengaruhi warna akhir bola")
 
     col1, col2 = st.columns([1, 2])
 
     with col1:
-        st.markdown("#### ⚙️ Pengaturan Pencahayaan")
+        st.markdown("#### Pengaturan Pencahayaan")
         
         st.markdown("**Warna Cahaya**")
         light_color_hex = st.color_picker("Pilih Warna Cahaya", "#FFFFFF")
@@ -197,32 +197,32 @@ if section_choice in ["Model Pencahayaan Phong", "Keduanya"]:
         
         st.markdown("---")
         st.markdown("**Properti Material**")
-        ka = st.slider("🌙 Koefisien Ambient (ka)", 0.0, 1.0, 0.1, 0.05, 
+        ka = st.slider("Koefisien Ambient (ka)", 0.0, 1.0, 0.1, 0.05, 
                       help="Cahaya lingkungan dasar")
-        kd = st.slider("☀️ Koefisien Diffuse (kd)", 0.0, 1.0, 0.7, 0.05,
+        kd = st.slider("Koefisien Diffuse (kd)", 0.0, 1.0, 0.7, 0.05,
                       help="Refleksi cahaya tersebar")
-        ks = st.slider("✨ Koefisien Specular (ks)", 0.0, 1.0, 0.5, 0.05,
+        ks = st.slider("Koefisien Specular (ks)", 0.0, 1.0, 0.5, 0.05,
                       help="Pantulan mengkilap")
-        shininess = st.slider("💎 Shininess (kilau)", 1, 256, 32,
+        shininess = st.slider("Shininess (kilau)", 1, 256, 32,
                              help="Tingkat kilau permukaan")
 
         st.markdown("---")
         st.markdown("**Posisi Cahaya (XYZ)**")
-        light_x = st.slider("📍 Posisi X", -2.0, 2.0, 1.0, 0.1)
-        light_y = st.slider("📍 Posisi Y", -2.0, 2.0, 1.0, 0.1)
-        light_z = st.slider("📍 Posisi Z", -2.0, 2.0, 1.0, 0.1)
-        
+        light_x = st.slider("Posisi X", -2.0, 2.0, 1.0, 0.1)
+        light_y = st.slider("Posisi Y", -2.0, 2.0, 1.0, 0.1)
+        light_z = st.slider("Posisi Z", -2.0, 2.0, 1.0, 0.1)
+
         # Info sidebar
-        st.sidebar.markdown(f"**💡 Cahaya:** `RGB{light_color}`")
-        st.sidebar.markdown(f"**📍 Posisi:** `({light_x:.1f}, {light_y:.1f}, {light_z:.1f})`")
-        st.sidebar.markdown(f"**🎨 Material:**")
+        st.sidebar.markdown(f"**Cahaya:** `RGB{light_color}`")
+        st.sidebar.markdown(f"**Posisi:** `({light_x:.1f}, {light_y:.1f}, {light_z:.1f})`")
+        st.sidebar.markdown(f"**Material:**")
         st.sidebar.markdown(f"- Ambient: `{ka:.2f}`")
         st.sidebar.markdown(f"- Diffuse: `{kd:.2f}`")
         st.sidebar.markdown(f"- Specular: `{ks:.2f}`")
         st.sidebar.markdown(f"- Shininess: `{shininess}`")
 
     with col2:
-        st.markdown("#### 📤 Visualisasi Hasil")
+        st.markdown("#### Visualisasi Hasil")
         
         # Simulasi bola 3D sederhana
         size = 300
@@ -273,30 +273,30 @@ if section_choice in ["Model Pencahayaan Phong", "Keduanya"]:
                 status_text.text(f"⏳ Rendering... {progress}%")
         
         progress_bar.progress(100)
-        status_text.text("✅ Rendering selesai!")
+        status_text.text("Rendering selesai!")
         
-        st.image(sphere_img, caption="🎨 Bola 3D dengan Model Pencahayaan Phong", use_column_width=True)
+        st.image(sphere_img, caption="Bola 3D dengan Model Pencahayaan Phong", use_column_width=True)
         
-        st.success("✨ Visualisasi berhasil dibuat!")
+        st.success("Visualisasi berhasil dibuat!")
 
     # Analisis Komponen
-    with st.expander("📊 **Analisis Komponen Pencahayaan**", expanded=False):
+    with st.expander("**Analisis Komponen Pencahayaan**", expanded=False):
         analysis_col1, analysis_col2, analysis_col3 = st.columns(3)
         
         with analysis_col1:
-            st.markdown("**🌙 Ambient**")
+            st.markdown("**Ambient**")
             ambient_contribution = ka * 100
             st.metric("Kontribusi", f"{ambient_contribution:.1f}%")
             st.markdown("Cahaya dasar yang merata di seluruh permukaan")
         
         with analysis_col2:
-            st.markdown("**☀️ Diffuse**")
+            st.markdown("**Diffuse**")
             diffuse_contribution = kd * 100
             st.metric("Kontribusi", f"{diffuse_contribution:.1f}%")
             st.markdown("Refleksi cahaya bergantung pada sudut permukaan")
         
         with analysis_col3:
-            st.markdown("**✨ Specular**")
+            st.markdown("**Specular**")
             specular_contribution = ks * 100
             st.metric("Kontribusi", f"{specular_contribution:.1f}%")
             st.markdown(f"Pantulan mengkilap (shininess: {shininess})")
@@ -304,7 +304,7 @@ if section_choice in ["Model Pencahayaan Phong", "Keduanya"]:
 st.markdown("---")
 
 # --- Perbandingan Detail --- #
-with st.expander("⚖️ **Perbandingan Model Warna**", expanded=False):
+with st.expander("**Perbandingan Model Warna**", expanded=False):
     comp_col1, comp_col2, comp_col3 = st.columns(3)
     
     with comp_col1:
@@ -343,9 +343,9 @@ with st.expander("⚖️ **Perbandingan Model Warna**", expanded=False):
 st.markdown("---")
 
 # --- Implementasi Kode --- #
-st.markdown("### 💻 Implementasi Kode")
+st.markdown("### Implementasi Kode")
 
-with st.expander("📝 **Lihat Kode Implementasi**", expanded=False):
+with st.expander("**Lihat Kode Implementasi**", expanded=False):
     st.markdown("""
     Berikut adalah implementasi lengkap dari konversi model warna dan 
     perhitungan pencahayaan Phong. Perhatikan penggunaan rumus matematis 
@@ -365,7 +365,7 @@ with st.expander("📝 **Lihat Kode Implementasi**", expanded=False):
 st.markdown("---")
 
 # --- Resources Section --- #
-with st.expander("📚 **Sumber Belajar Tambahan**", expanded=False):
+with st.expander("**Sumber Belajar Tambahan**", expanded=False):
     resource_col1, resource_col2 = st.columns(2)
     
     with resource_col1:
@@ -390,7 +390,7 @@ with st.expander("📚 **Sumber Belajar Tambahan**", expanded=False):
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #666; padding: 20px;'>
-    <p>💡 <strong>Tips:</strong> Coba kombinasi berbeda dari parameter material untuk melihat efek pencahayaan yang bervariasi!</p>
+    <p><strong>Tips:</strong> Coba kombinasi berbeda dari parameter material untuk melihat efek pencahayaan yang bervariasi!</p>
     <p>Minggu 5: Model Warna & Pencahayaan | © 2025 Grafika Komputer</p>
 </div>
 """, unsafe_allow_html=True)

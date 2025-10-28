@@ -45,7 +45,7 @@ def show_week2():
     # --- Hero Section --- #
     st.markdown("""
         <div class="header-container">
-            <h1>🔄 Transformasi Geometri 2D</h1>
+            <h1>Transformasi Geometri 2D</h1>
             <p class="subtitle">Manipulasi Objek dengan Matriks Transformasi</p>
         </div>
     """, unsafe_allow_html=True)
@@ -56,15 +56,15 @@ def show_week2():
     intro_col1, intro_col2 = st.columns([3, 2])
     
     with intro_col1:
-        st.markdown("### 🎯 Tujuan Pembelajaran")
+        st.markdown("### Tujuan Pembelajaran")
         st.markdown("""
         Pada minggu ini, Anda akan mempelajari konsep fundamental transformasi geometri 
         dalam grafika komputer 2D:
         
-        - **📐 Transformasi Dasar** - Translation, Rotation, Scaling, Shearing
-        - **🔢 Matriks Transformasi** - Representasi matematis menggunakan koordinat homogen
-        - **🎮 Aplikasi Interaktif** - Visualisasi real-time dengan parameter yang dapat diubah
-        - **🔗 Transformasi Komposit** - Menggabungkan beberapa transformasi sekaligus
+        - **Transformasi Dasar** - Translation, Rotation, Scaling, Shearing
+        - **Matriks Transformasi** - Representasi matematis menggunakan koordinat homogen
+        - **Aplikasi Interaktif** - Visualisasi real-time dengan parameter yang dapat diubah
+        - **Transformasi Komposit** - Menggabungkan beberapa transformasi sekaligus
         
         Semua transformasi menggunakan **matriks 3×3** dan **koordinat homogen** untuk 
         memudahkan komputasi dan kombinasi transformasi.
@@ -72,7 +72,7 @@ def show_week2():
     
     with intro_col2:
         st.info("""
-        ### 📌 Petunjuk Penggunakan
+        ### Petunjuk Penggunakan
         
         **Langkah-langkah:**
         
@@ -88,7 +88,7 @@ def show_week2():
     st.markdown("---")
     
     # --- Theory Section --- #
-    with st.expander("📚 **Teori: Transformasi 2D & Koordinat Homogen**", expanded=False):
+    with st.expander("**Teori: Transformasi 2D & Koordinat Homogen**", expanded=False):
         theory_col1, theory_col2 = st.columns([2, 1])
         
         with theory_col1:
@@ -124,19 +124,19 @@ def show_week2():
             st.markdown("""
             ### 🔑 Jenis Transformasi
             
-            **1. Translation** 📍
+            **1. Translation**
             Memindahkan objek
             
-            **2. Rotation** 🔄
+            **2. Rotation**
             Memutar objek
             
-            **3. Scaling** 📏
+            **3. Scaling**
             Mengubah ukuran
             
-            **4. Shearing** ↗️
+            **4. Shearing**
             Menggeser diagonal
             
-            **5. Composite** 🔗
+            **5. Composite**
             Kombinasi transformasi
             """)
         
@@ -144,7 +144,7 @@ def show_week2():
         
         # Tabs untuk setiap transformasi
         trans_tab1, trans_tab2, trans_tab3, trans_tab4 = st.tabs([
-            "📍 Translasi", "🔄 Rotasi", "📏 Skala", "↗️ Shear"
+            "Translasi", "Rotasi", "Skala", "Shear"
         ])
         
         with trans_tab1:
@@ -180,12 +180,12 @@ def show_week2():
                 """)
             
             with tab_col2:
-                st.markdown("**📊 Contoh:**")
+                st.markdown("**Contoh:**")
                 st.code("Point: (100, 100)")
                 st.code("tx = 50, ty = 30")
                 st.code("Result: (150, 130)")
                 
-                st.success("✅ Objek bergeser 50px ke kanan dan 30px ke bawah")
+                st.success("Objek bergeser 50px ke kanan dan 30px ke bawah")
         
         with trans_tab2:
             tab_col1, tab_col2 = st.columns([2, 1])
@@ -226,13 +226,13 @@ def show_week2():
                 """)
             
             with tab_col2:
-                st.markdown("**📊 Contoh:**")
+                st.markdown("**Contoh:**")
                 st.code("Angle: 45°")
                 st.code("Pivot: (0, 0)")
                 st.code("cos(45°) ≈ 0.707")
                 st.code("sin(45°) ≈ 0.707")
                 
-                st.info("💡 Rotasi 90° mengubah (x,y) menjadi (-y,x)")
+                st.info("Rotasi 90° mengubah (x,y) menjadi (-y,x)")
         
         with trans_tab3:
             tab_col1, tab_col2 = st.columns([2, 1])
@@ -276,13 +276,13 @@ def show_week2():
                 """)
             
             with tab_col2:
-                st.markdown("**📊 Contoh:**")
+                st.markdown("**Contoh:**")
                 st.code("sx = 2.0 (2x lebar)")
                 st.code("sy = 1.5 (1.5x tinggi)")
                 st.code("Point (10,20)")
                 st.code("Result (20,30)")
                 
-                st.warning("⚠️ sx atau sy negatif = reflection")
+                st.warning("sx atau sy negatif = reflection")
         
         with trans_tab4:
             tab_col1, tab_col2 = st.columns([2, 1])
@@ -324,7 +324,7 @@ def show_week2():
                 """)
             
             with tab_col2:
-                st.markdown("**📊 Contoh:**")
+                st.markdown("**Contoh:**")
                 st.code("shx = 0.5")
                 st.code("shy = 0.0")
                 st.code("Point (10, 20)")
@@ -332,12 +332,12 @@ def show_week2():
                 st.code("y' = 0×10 + 20 = 20")
                 st.code("Result: (20, 20)")
                 
-                st.info("💡 Membuat efek 'miring' pada objek")
+                st.info("Membuat efek 'miring' pada objek")
     
     st.markdown("---")
     
     # --- Interactive Demo Section --- #
-    st.markdown("### 🎮 Demo Interaktif")
+    st.markdown("### Demo Interaktif")
     
     # Mode selection with better styling
     demo_col1, demo_col2 = st.columns([3, 1])
@@ -352,17 +352,17 @@ def show_week2():
     with demo_col2:
         demo_mode = st.selectbox(
             "Mode Demo",
-            ["📊 Predefined Shapes", "🖌️ Canvas Drawing"],
+            ["Predefined Shapes", "Canvas Drawing"],
             label_visibility="collapsed"
         )
     
     st.markdown("---")
     
-    if demo_mode == "🖌️ Canvas Drawing":
+    if demo_mode == "Canvas Drawing":
         if not CANVAS_AVAILABLE:
-            st.error("❌ **Module 'streamlit-drawable-canvas' tidak tersedia**")
+            st.error("**Module 'streamlit-drawable-canvas' tidak tersedia**")
             st.code("pip install streamlit-drawable-canvas", language="bash")
-            st.info("💡 Module ini diperlukan untuk mode Canvas Drawing. Gunakan mode Predefined Shapes sebagai alternatif.")
+            st.info("Module ini diperlukan untuk mode Canvas Drawing. Gunakan mode Predefined Shapes sebagai alternatif.")
         else:
             show_canvas_mode()
     else:
@@ -371,7 +371,7 @@ def show_week2():
     st.markdown("---")
     
     # --- Composite Transformation Section --- #
-    with st.expander("🔗 **Transformasi Komposit (Advanced)**", expanded=False):
+    with st.expander("**Transformasi Komposit (Advanced)**", expanded=False):
         st.markdown("""
         ### Menggabungkan Beberapa Transformasi
         
@@ -385,7 +385,7 @@ def show_week2():
         
         with comp_theory_col1:
             st.markdown("""
-            **💡 Konsep Dasar:**
+            **Konsep Dasar:**
             
             Misalkan kita ingin menerapkan transformasi T₁, kemudian T₂, lalu T₃:
             
@@ -408,7 +408,7 @@ def show_week2():
         
         with comp_theory_col2:
             st.markdown("""
-            **⚠️ Urutan Sangat Penting!**
+            **Urutan Sangat Penting!**
             
             Perkalian matriks **tidak komutatif**:
             ```
@@ -432,13 +432,13 @@ def show_week2():
         st.markdown("---")
         
         # Demo composite
-        st.markdown("#### 📐 Kalkulator Transformasi Komposit")
-        st.info("💡 Eksplorasi bagaimana urutan transformasi mempengaruhi hasil akhir")
+        st.markdown("#### Kalkulator Transformasi Komposit")
+        st.info("Eksplorasi bagaimana urutan transformasi mempengaruhi hasil akhir")
         
         comp_col1, comp_col2, comp_col3 = st.columns(3)
         
         with comp_col1:
-            st.markdown("**🔵 Transformasi 1:**")
+            st.markdown("**Transformasi 1:**")
             t1_type = st.selectbox("Jenis", ["Translasi", "Rotasi", "Skala", "Shear"], key="t1")
             
             if t1_type == "Translasi":
@@ -464,7 +464,7 @@ def show_week2():
                 st.caption(f"Sh({t1_shx}, {t1_shy})")
         
         with comp_col2:
-            st.markdown("**🟢 Transformasi 2:**")
+            st.markdown("**Transformasi 2:**")
             t2_type = st.selectbox("Jenis", ["Translasi", "Rotasi", "Skala", "Shear"], key="t2")
             
             if t2_type == "Translasi":
@@ -490,7 +490,7 @@ def show_week2():
                 st.caption(f"Sh({t2_shx}, {t2_shy})")
         
         with comp_col3:
-            st.markdown("**🟡 Transformasi 3:**")
+            st.markdown("**Transformasi 3:**")
             t3_type = st.selectbox("Jenis", ["Translasi", "Rotasi", "Skala", "Shear"], key="t3")
             
             if t3_type == "Translasi":
@@ -519,7 +519,7 @@ def show_week2():
         m_combined = combine_transformations([m1, m2, m3])
         
         st.markdown("---")
-        st.markdown("#### 📊 Hasil Transformasi Komposit")
+        st.markdown("#### Hasil Transformasi Komposit")
         
         result_col1, result_col2 = st.columns([2, 1])
         
@@ -538,10 +538,10 @@ def show_week2():
             st.code(f"2️⃣ {t2_type}")
             st.code(f"3️⃣ {t3_type}")
             
-            st.success("✅ Matriks siap digunakan untuk transformasi!")
+            st.success("Matriks siap digunakan untuk transformasi!")
         
         st.info("""
-        💡 **Interpretasi:** Matriks gabungan ini merepresentasikan efek kumulatif dari 
+        **Interpretasi:** Matriks gabungan ini merepresentasikan efek kumulatif dari 
         ketiga transformasi. Anda dapat menggunakan satu matriks ini untuk mentransformasi 
         seluruh objek sekaligus, yang jauh lebih efisien daripada menerapkan tiga 
         transformasi secara terpisah untuk setiap titik.
@@ -582,10 +582,10 @@ def show_canvas_mode():
     """Mode menggambar di canvas dengan drawable canvas."""
     
     st.markdown("#### 🖌️ Mode Canvas Drawing")
-    st.info("🎨 **Instruksi:** Gambar bentuk bebas di canvas, simpan, pilih transformasi, lalu terapkan untuk melihat hasilnya!")
+    st.info("**Instruksi:** Gambar bentuk bebas di canvas, simpan, pilih transformasi, lalu terapkan untuk melihat hasilnya!")
     
     # Sidebar controls
-    st.sidebar.markdown("### 🎛️ Kontrol Transformasi")
+    st.sidebar.markdown("### Kontrol Transformasi")
     
     transform_type = st.sidebar.selectbox(
         "Jenis Transformasi",
@@ -611,12 +611,12 @@ def show_canvas_mode():
     if transform_type == "Translasi":
         params['tx'] = st.sidebar.slider("Translasi X (tx)", -200, 200, int(params['tx']), help="Perpindahan horizontal")
         params['ty'] = st.sidebar.slider("Translasi Y (ty)", -200, 200, int(params['ty']), help="Perpindahan vertikal")
-        st.sidebar.info(f"📍 Perpindahan: ({params['tx']}, {params['ty']}) piksel")
+        st.sidebar.info(f"Perpindahan: ({params['tx']}, {params['ty']}) piksel")
         
     elif transform_type == "Rotasi":
         params['angle'] = st.sidebar.slider("Sudut (°)", -180, 180, int(params['angle']), help="Sudut rotasi dalam derajat")
         st.sidebar.caption("Pusat rotasi: centroid objek")
-        st.sidebar.info(f"🔄 Rotasi: {params['angle']}° {'CCW' if params['angle'] > 0 else 'CW' if params['angle'] < 0 else 'none'}")
+        st.sidebar.info(f"Rotasi: {params['angle']}° {'CCW' if params['angle'] > 0 else 'CW' if params['angle'] < 0 else 'none'}")
         
     elif transform_type == "Skala":
         params['sx'] = st.sidebar.slider("Skala X (sx)", 0.1, 3.0, float(params['sx']), 0.1, help="Faktor skala horizontal")
@@ -625,12 +625,12 @@ def show_canvas_mode():
         if uniform:
             params['sy'] = params['sx']
         st.sidebar.caption("Pusat skala: centroid objek")
-        st.sidebar.info(f"📏 Skala: {params['sx']}x × {params['sy']}x")
+        st.sidebar.info(f"Skala: {params['sx']}x × {params['sy']}x")
         
     else:  # Shear
         params['shx'] = st.sidebar.slider("Shear X (shx)", -2.0, 2.0, float(params['shx']), 0.1, help="Geser horizontal berdasarkan Y")
         params['shy'] = st.sidebar.slider("Shear Y (shy)", -2.0, 2.0, float(params['shy']), 0.1, help="Geser vertikal berdasarkan X")
-        st.sidebar.info(f"↗️ Shear: X={params['shx']}, Y={params['shy']}")
+        st.sidebar.info(f"Shear: X={params['shx']}, Y={params['shy']}")
     
     st.sidebar.markdown("---")
     
@@ -638,7 +638,7 @@ def show_canvas_mode():
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.markdown("##### 🎨 Canvas Menggambar")
+        st.markdown("##### Canvas Menggambar")
         
         canvas_result = st_canvas(
             fill_color="rgba(255, 75, 75, 0.3)",
@@ -652,7 +652,7 @@ def show_canvas_mode():
         )
     
     with col2:
-        st.markdown("##### 📊 Matriks Transformasi")
+        st.markdown("##### Matriks Transformasi")
         
         # Calculate matrix based on type
         if transform_type == "Translasi":
@@ -672,35 +672,35 @@ def show_canvas_mode():
         st.dataframe(df_matrix, use_container_width=True)
         
         st.markdown("---")
-        st.markdown("**💾 Status:**")
+        st.markdown("**Status:**")
         if 'original_drawing' in st.session_state:
-            st.success("✅ Bentuk tersimpan")
+            st.success("Bentuk tersimpan")
         else:
-            st.warning("⚠️ Belum ada bentuk")
+            st.warning("Belum ada bentuk")
     
     # Action buttons
     st.markdown("---")
     btn_col1, btn_col2, btn_col3 = st.columns(3)
     
     with btn_col1:
-        if st.button("💾 Simpan Bentuk", use_container_width=True, type="primary"):
+        if st.button("Simpan Bentuk", use_container_width=True, type="primary"):
             if canvas_result.json_data and canvas_result.json_data["objects"]:
                 st.session_state.original_drawing = canvas_result.json_data
-                st.success("✅ Bentuk berhasil disimpan!")
+                st.success("Bentuk berhasil disimpan!")
                 st.balloons()
             else:
-                st.warning("⚠️ Silakan gambar sesuatu terlebih dahulu!")
-    
+                st.warning("Silakan gambar sesuatu terlebih dahulu!")
+
     with btn_col2:
-        if st.button("⚡ Terapkan Transformasi", use_container_width=True):
+        if st.button("Terapkan Transformasi", use_container_width=True):
             if 'original_drawing' in st.session_state:
-                st.success(f"✅ {transform_type} berhasil diterapkan!")
-                st.info(f"💡 Transformasi {transform_type} telah diaplikasikan pada objek")
+                st.success(f"{transform_type} berhasil diterapkan!")
+                st.info(f"Transformasi {transform_type} telah diaplikasikan pada objek")
             else:
-                st.warning("⚠️ Simpan bentuk terlebih dahulu!")
-    
+                st.warning("Simpan bentuk terlebih dahulu!")
+
     with btn_col3:
-        if st.button("🔄 Reset Semua", use_container_width=True):
+        if st.button("Reset Semua", use_container_width=True):
             st.session_state.transform_params = {
                 'tx': 0.0, 'ty': 0.0, 'angle': 0.0,
                 'sx': 1.0, 'sy': 1.0, 'shx': 0.0, 'shy': 0.0
@@ -712,12 +712,12 @@ def show_canvas_mode():
 
 def show_visualization_mode():
     """Mode visualisasi dengan predefined shapes menggunakan Plotly."""
-    
-    st.markdown("#### 📊 Mode Visualisasi dengan Bentuk Predefined")
-    st.info("🎯 **Mode Visualisasi:** Lihat efek transformasi pada bentuk geometris standar dengan perbandingan before/after")
+
+    st.markdown("#### Mode Visualisasi dengan Bentuk Predefined")
+    st.info("**Mode Visualisasi:** Lihat efek transformasi pada bentuk geometris standar dengan perbandingan before/after")
     
     # Sidebar controls
-    st.sidebar.markdown("### 🎛️ Kontrol Visualisasi")
+    st.sidebar.markdown("### Kontrol Visualisasi")
     
     # Shape selection
     shape_type = st.sidebar.selectbox(
@@ -757,14 +757,14 @@ def show_visualization_mode():
         tx = st.sidebar.slider("Translasi X (tx)", -150, 150, 80, help="Perpindahan horizontal")
         ty = st.sidebar.slider("Translasi Y (ty)", -150, 150, 60, help="Perpindahan vertikal")
         matrix = create_translation_matrix(tx, ty)
-        st.sidebar.info(f"📍 Total perpindahan: √({tx}² + {ty}²) = {np.sqrt(tx**2 + ty**2):.1f} px")
+        st.sidebar.info(f"Total perpindahan: √({tx}² + {ty}²) = {np.sqrt(tx**2 + ty**2):.1f} px")
         
     elif transform_type == "Rotasi":
         angle = st.sidebar.slider("Sudut (°)", -180, 180, 45, help="Sudut rotasi")
         cx, cy = 0, 0  # Center of shape
         matrix = create_rotation_matrix(angle, cx, cy)
-        st.sidebar.caption("🎯 Pusat rotasi: origin (0, 0)")
-        st.sidebar.info(f"🔄 Arah: {'Counter-clockwise' if angle > 0 else 'Clockwise' if angle < 0 else 'Tidak ada rotasi'}")
+        st.sidebar.caption("Pusat rotasi: origin (0, 0)")
+        st.sidebar.info(f"Arah: {'Counter-clockwise' if angle > 0 else 'Clockwise' if angle < 0 else 'Tidak ada rotasi'}")
         
     elif transform_type == "Skala":
         col_sx, col_sy = st.sidebar.columns(2)
@@ -780,11 +780,11 @@ def show_visualization_mode():
         matrix = create_scale_matrix(sx, sy, 0, 0)
         
         area_factor = sx * sy
-        st.sidebar.info(f"📏 Luas berubah: {area_factor:.2f}x")
+        st.sidebar.info(f"Luas berubah: {area_factor:.2f}x")
         if sx == sy:
-            st.sidebar.success("✅ Proporsi dipertahankan")
+            st.sidebar.success("Proporsi dipertahankan")
         else:
-            st.sidebar.warning("⚠️ Proporsi berubah")
+            st.sidebar.warning("Proporsi berubah")
         
     elif transform_type == "Shear":
         shx = st.sidebar.slider("Shear X (shx)", -1.0, 1.0, 0.5, 0.1, help="Geser horizontal")
@@ -792,18 +792,18 @@ def show_visualization_mode():
         matrix = create_shear_matrix(shx, shy)
         
         if shx != 0:
-            st.sidebar.info(f"↗️ Horizontal shear: {abs(shx)}")
+            st.sidebar.info(f"Horizontal shear: {abs(shx)}")
         if shy != 0:
-            st.sidebar.info(f"↗️ Vertical shear: {abs(shy)}")
+            st.sidebar.info(f"Vertical shear: {abs(shy)}")
         
     else:  # Komposit
-        st.sidebar.markdown("**🔵 Step 1: Rotasi**")
+        st.sidebar.markdown("**Step 1: Rotasi**")
         angle = st.sidebar.slider("Rotasi (°)", -180, 180, 30, key="comp_rot")
-        
-        st.sidebar.markdown("**🟢 Step 2: Skala**")
+
+        st.sidebar.markdown("**Step 2: Skala**")
         scale = st.sidebar.slider("Skala Uniform", 0.5, 2.0, 1.2, 0.1, key="comp_scale")
-        
-        st.sidebar.markdown("**🟡 Step 3: Translasi**")
+
+        st.sidebar.markdown("**Step 3: Translasi**")
         tx = st.sidebar.slider("tx", -150, 150, 100, key="comp_tx")
         ty = st.sidebar.slider("ty", -150, 150, 50, key="comp_ty")
         
@@ -813,7 +813,7 @@ def show_visualization_mode():
         matrix = combine_transformations([m1, m2, m3])
         
         st.sidebar.markdown("---")
-        st.sidebar.success("✅ Urutan: Rotasi → Skala → Translasi")
+        st.sidebar.success("Urutan: Rotasi → Skala → Translasi")
     
     st.sidebar.markdown("---")
     
@@ -824,7 +824,7 @@ def show_visualization_mode():
     viz_col1, viz_col2 = st.columns([3, 1])
     
     with viz_col1:
-        st.markdown("##### 📊 Grafik Perbandingan")
+        st.markdown("##### Grafik Perbandingan")
         
         fig = go.Figure()
         
@@ -895,7 +895,7 @@ def show_visualization_mode():
         st.plotly_chart(fig, use_container_width=True)
     
     with viz_col2:
-        st.markdown("##### 📐 Matriks")
+        st.markdown("##### Matriks")
         
         df_matrix = pd.DataFrame(
             np.round(matrix, 4),
@@ -906,7 +906,7 @@ def show_visualization_mode():
         
         st.markdown("---")
         
-        st.markdown("**📍 Sample Point:**")
+        st.markdown("**Sample Point:**")
         sample_idx = len(points) // 2
         orig_pt = points[sample_idx]
         trans_pt = transformed_points[sample_idx]
@@ -920,8 +920,8 @@ def show_visualization_mode():
     
     # Statistics section
     st.markdown("---")
-    st.markdown("##### 📈 Statistik Transformasi")
-    
+    st.markdown("##### Statistik Transformasi")
+
     stat_col1, stat_col2, stat_col3, stat_col4 = st.columns(4)
     
     with stat_col1:

@@ -27,7 +27,7 @@ def show_week1():
     # --- Hero Section --- #
     st.markdown("""
         <div class="header-container">
-            <h1>📚 Pengantar Grafika Komputer</h1>
+            <h1>Pengantar Grafika Komputer</h1>
             <p class="subtitle">Sejarah, Aplikasi, dan Konsep Fundamental</p>
         </div>
     """, unsafe_allow_html=True)
@@ -38,16 +38,16 @@ def show_week1():
     intro_col1, intro_col2 = st.columns([3, 2])
     
     with intro_col1:
-        st.markdown("### 🎯 Tujuan Pembelajaran")
+        st.markdown("### Tujuan Pembelajaran")
         st.markdown("""
         Pada minggu pertama ini, Anda akan membangun fondasi pemahaman tentang 
         grafika komputer yang akan menjadi dasar untuk materi-materi selanjutnya:
         
-        - **📖 Sejarah Perkembangan** - Memahami evolusi grafika komputer dari era 1950-an hingga modern
-        - **🌍 Aplikasi Praktis** - Mengenali berbagai penerapan grafika komputer dalam kehidupan sehari-hari
-        - **🧩 Konsep Fundamental** - Memahami prinsip-prinsip dasar seperti rasterisasi dan sistem koordinat
-        - **🔄 Rendering Pipeline** - Mengenal tahapan transformasi dari 3D ke layar 2D
-        - **🎨 Model Warna** - Memahami berbagai representasi warna dalam komputer
+        - **Sejarah Perkembangan** - Memahami evolusi grafika komputer dari era 1950-an hingga modern
+        - **Aplikasi Praktis** - Mengenali berbagai penerapan grafika komputer dalam kehidupan sehari-hari
+        - **Konsep Fundamental** - Memahami prinsip-prinsip dasar seperti rasterisasi dan sistem koordinat
+        - **Rendering Pipeline** - Mengenal tahapan transformasi dari 3D ke layar 2D
+        - **Model Warna** - Memahami berbagai representasi warna dalam komputer
         
         Materi ini bersifat **teoritis namun interaktif**, dengan visualisasi dan contoh konkret 
         untuk memudahkan pemahaman.
@@ -55,7 +55,7 @@ def show_week1():
     
     with intro_col2:
         st.info("""
-        ### 📌 Petunjuk Belajar
+        ### Petunjuk Belajar
         
         **Cara menggunakan halaman ini:**
         
@@ -71,7 +71,7 @@ def show_week1():
     st.markdown("---")
     
     # --- What is Computer Graphics --- #
-    with st.expander("💡 **Apa itu Grafika Komputer?**", expanded=True):
+    with st.expander("**Apa itu Grafika Komputer?**", expanded=True):
         what_col1, what_col2 = st.columns([2, 1])
         
         with what_col1:
@@ -80,7 +80,7 @@ def show_week1():
             mempelajari teknik dan metode untuk **menciptakan, memanipulasi, dan 
             menampilkan gambar** menggunakan komputer.
             
-            ### 🎯 Tujuan Utama:
+            ### Tujuan Utama:
             
             **1. Sintesis Gambar (Image Synthesis)**
             - Membuat gambar baru dari deskripsi geometris
@@ -94,7 +94,7 @@ def show_week1():
             - Mengekstrak informasi dari gambar
             - Contoh: Computer Vision, Face Recognition
             
-            ### 🔑 Komponen Utama:
+            ### Komponen Utama:
             - **Hardware:** GPU, Display devices, Input devices
             - **Software:** Graphics APIs (OpenGL, DirectX, Vulkan)
             - **Algoritma:** Rendering, transformasi, shading
@@ -103,7 +103,7 @@ def show_week1():
         
         with what_col2:
             st.success("""
-            **💭 Fakta Menarik:**
+            **Fakta Menarik:**
             
             - Industri grafika komputer bernilai **$200+ miliar**
             
@@ -115,7 +115,7 @@ def show_week1():
             """)
             
             st.info("""
-            **🎓 Bidang Terkait:**
+            **Bidang Terkait:**
             
             - Computer Vision
             - Image Processing
@@ -127,7 +127,7 @@ def show_week1():
     st.markdown("---")
     
     # --- Timeline Sejarah --- #
-    st.markdown("### 🕰️ Sejarah Singkat Grafika Komputer")
+    st.markdown("### Sejarah Singkat Grafika Komputer")
     
     st.markdown("""
     Grafika komputer telah berkembang dari eksperimen sederhana menjadi teknologi 
@@ -349,7 +349,7 @@ def show_week1():
     st.markdown("---")
     
     # --- Aplikasi Section --- #
-    st.markdown("### 🌍 Aplikasi Grafika Komputer")
+    st.markdown("### Aplikasi Grafika Komputer")
     
     st.markdown("""
     Grafika komputer ada di mana-mana dalam kehidupan modern kita. Teknologi ini 
@@ -363,7 +363,7 @@ def show_week1():
     with app_col1:
         st.markdown("""
         <div class="nav-card">
-            <h4>🎬 Hiburan & Media Digital</h4>
+            <h4>Hiburan & Media Digital</h4>
             <p><strong>Film & TV:</strong></p>
             <ul>
                 <li>Visual effects (VFX) - Marvel, Avatar</li>
@@ -386,7 +386,7 @@ def show_week1():
         
         st.markdown("""
         <div class="nav-card">
-            <h4>📐 Desain & Rekayasa</h4>
+            <h4>Desain & Rekayasa</h4>
             <p><strong>CAD/CAM:</strong></p>
             <ul>
                 <li>Desain produk manufaktur</li>
@@ -410,7 +410,7 @@ def show_week1():
         
         st.markdown("""
         <div class="nav-card">
-            <h4>🔬 Visualisasi Ilmiah</h4>
+            <h4>Visualisasi Ilmiah</h4>
             <p><strong>Medis:</strong></p>
             <ul>
                 <li>MRI, CT scan reconstruction</li>
@@ -435,7 +435,7 @@ def show_week1():
     with app_col2:
         st.markdown("""
         <div class="nav-card">
-            <h4>✈️ Pelatihan & Simulasi</h4>
+            <h4>Pelatihan & Simulasi</h4>
             <p><strong>Penerbangan:</strong></p>
             <ul>
                 <li>Flight simulator untuk pilot training</li>
@@ -459,7 +459,7 @@ def show_week1():
         
         st.markdown("""
         <div class="nav-card">
-            <h4>💻 Antarmuka & Interaksi</h4>
+            <h4>Antarmuka & Interaksi</h4>
             <p><strong>Desktop:</strong></p>
             <ul>
                 <li>Operating systems (Windows, macOS, Linux)</li>
@@ -483,7 +483,7 @@ def show_week1():
         
         st.markdown("""
         <div class="nav-card">
-            <h4>🥽 VR, AR, & Mixed Reality</h4>
+            <h4>VR, AR, & Mixed Reality</h4>
             <p><strong>Virtual Reality:</strong></p>
             <ul>
                 <li>Immersive gaming experiences</li>
@@ -508,7 +508,7 @@ def show_week1():
     st.markdown("---")
     
     # --- Konsep Dasar Section --- #
-    st.markdown("### 🧩 Konsep Fundamental Grafika Komputer")
+    st.markdown("### Konsep Fundamental Grafika Komputer")
     
     st.info("""
     💡 **Catatan:** Konsep-konsep berikut adalah fondasi yang akan terus Anda gunakan 
@@ -518,11 +518,11 @@ def show_week1():
     
     # Tabs untuk konsep
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
-        "📊 Raster vs Vektor", 
-        "🔄 Pipeline Grafika", 
-        "📍 Sistem Koordinat",
-        "🎨 Model Warna",
-        "🖼️ Pixel & Resolusi"
+        "Raster vs Vektor", 
+        "Pipeline Grafika", 
+        "Sistem Koordinat",
+        "Model Warna",
+        "Pixel & Resolusi"
     ])
     
     with tab1:
@@ -537,7 +537,7 @@ def show_week1():
         
         with col_raster:
             st.markdown("""
-            ### 🖼️ Grafik Raster (Bitmap)
+            ### Grafik Raster (Bitmap)
             
             **Definisi:**
             Gambar direpresentasikan sebagai **grid piksel** (picture elements), 
@@ -592,7 +592,7 @@ def show_week1():
         
         with col_vektor:
             st.markdown("""
-            ### 📐 Grafik Vektor
+            ### Grafik Vektor
             
             **Definisi:**
             Gambar direpresentasikan oleh **objek geometris** (garis, kurva, shape) 
@@ -654,7 +654,7 @@ def show_week1():
         
         with comparison_col1:
             st.success("""
-            **🎯 Kapan Menggunakan Raster:**
+            **Kapan Menggunakan Raster:**
             - Foto dan gambar dengan banyak detail
             - Digital painting dan artwork
             - Texture untuk 3D models
@@ -664,7 +664,7 @@ def show_week1():
         
         with comparison_col2:
             st.success("""
-            **🎯 Kapan Menggunakan Vektor:**
+            **Kapan Menggunakan Vektor:**
             - Logo dan brand identity
             - Icon dan UI elements
             - Infografis dan charts
@@ -689,7 +689,7 @@ def show_week1():
         pipeline_stages = [
             {
                 "stage": "1️⃣ Application Stage",
-                "processor": "💻 CPU",
+                "processor": "CPU",
                 "description": """
                 Tahap yang berjalan di CPU, menangani logika aplikasi dan persiapan data.
                 
@@ -706,7 +706,7 @@ def show_week1():
             },
             {
                 "stage": "2️⃣ Geometry Processing",
-                "processor": "🎮 GPU (Vertex Shader)",
+                "processor": "GPU (Vertex Shader)",
                 "description": """
                 Memproses setiap vertex secara parallel di GPU.
                 
@@ -728,7 +728,7 @@ def show_week1():
             },
             {
                 "stage": "3️⃣ Rasterization",
-                "processor": "🎮 GPU (Rasterizer - Fixed Function)",
+                "processor": "GPU (Rasterizer - Fixed Function)",
                 "description": """
                 Mengubah primitif geometris (triangles) menjadi fragments (calon piksel).
                 
@@ -748,7 +748,7 @@ def show_week1():
             },
             {
                 "stage": "4️⃣ Fragment Processing",
-                "processor": "🎮 GPU (Fragment/Pixel Shader)",
+                "processor": "GPU (Fragment/Pixel Shader)",
                 "description": """
                 Menentukan warna akhir setiap fragment (per-pixel operations).
                 
@@ -772,7 +772,7 @@ def show_week1():
             },
             {
                 "stage": "5️⃣ Per-Fragment Operations",
-                "processor": "🎮 GPU (Output Merger - Fixed Function)",
+                "processor": "GPU (Output Merger - Fixed Function)",
                 "description": """
                 Tahap akhir yang menentukan apakah fragment akan ditampilkan di layar.
                 
@@ -807,7 +807,7 @@ def show_week1():
         st.markdown("---")
         
         st.success("""
-        **🎯 Kesimpulan Pipeline:**
+        **Kesimpulan Pipeline:**
         
         Setiap frame dalam game atau aplikasi 3D melewati seluruh pipeline ini. 
         Untuk 60 FPS, seluruh proses harus selesai dalam **16.67 ms**!
@@ -832,7 +832,7 @@ def show_week1():
         
         with coord_col1:
             st.info("""
-            **🌍 1. Local/Object Space**
+            **1. Local/Object Space**
             
             **Definisi:**
             Koordinat relatif terhadap **titik pusat objek itu sendiri** (object's origin).
@@ -852,7 +852,7 @@ def show_week1():
             """)
             
             st.info("""
-            **🗺️ 2. World Space**
+            **2. World Space**
             
             **Definisi:**
             Koordinat **global dalam scene** - semua objek ditempatkan relatif 
@@ -878,7 +878,7 @@ def show_week1():
             """)
             
             st.info("""
-            **🎥 3. View/Camera Space**
+            **3. View/Camera Space**
             
             **Definisi:**
             Koordinat relatif terhadap **posisi dan orientasi kamera**.
@@ -907,7 +907,7 @@ def show_week1():
         
         with coord_col2:
             st.info("""
-            **📽️ 4. Clip Space**
+            **4. Clip Space**
             
             **Definisi:**
             Hasil dari **perspective projection**, mempersiapkan untuk clipping.
@@ -932,7 +932,7 @@ def show_week1():
             """)
             
             st.info("""
-            **📐 5. NDC (Normalized Device Coordinates)**
+            **5. NDC (Normalized Device Coordinates)**
             
             **Definisi:**
             Koordinat **ternormalisasi** setelah perspective division.
@@ -953,7 +953,7 @@ def show_week1():
             """)
             
             st.info("""
-            **📺 6. Screen/Window Space**
+            **6. Screen/Window Space**
             
             **Definisi:**
             Koordinat **piksel akhir** di layar/window.
@@ -981,7 +981,7 @@ def show_week1():
         st.markdown("---")
         
         st.success("""
-        **🔄 Full Transformation Pipeline:**
+        **Full Transformation Pipeline:**
         
         ```
         Local Space (Object)
@@ -1013,7 +1013,7 @@ def show_week1():
         
         with color_col1:
             st.markdown("""
-            **🔴🟢🔵 RGB (Red-Green-Blue)**
+            **RGB (Red-Green-Blue)**
             
             Model warna **aditif** yang digunakan untuk perangkat yang **memancarkan cahaya** 
             (emissive devices).
@@ -1058,7 +1058,7 @@ def show_week1():
         
         with color_col2:
             st.markdown("""
-            **🌈 HSV/HSL (Hue-Saturation-Value/Lightness)**
+            **HSV/HSL (Hue-Saturation-Value/Lightness)**
             
             Model warna berbasis **persepsi manusia**, lebih intuitif untuk pemilihan warna.
             
@@ -1108,7 +1108,7 @@ def show_week1():
         
         with color_col3:
             st.markdown("""
-            **🖨️ CMYK (Cyan-Magenta-Yellow-Key/Black)**
+            **CMYK (Cyan-Magenta-Yellow-Key/Black)**
             
             Model warna **subtraktif** untuk perangkat yang **memantulkan cahaya** 
             (reflective devices).
@@ -1178,7 +1178,7 @@ def show_week1():
         
         with additional_col2:
             st.success("""
-            **🎯 Kapan Menggunakan Apa?**
+            **Kapan Menggunakan Apa?**
             
             **RGB:**
             - Anything displayed on screens
@@ -1210,7 +1210,7 @@ def show_week1():
         
         with pixel_col1:
             st.markdown("""
-            ### 📐 Apa itu Pixel?
+            ### Apa itu Pixel?
             
             **Definisi:**
             Pixel adalah satu titik warna dalam grid 2D yang membentuk gambar digital.
@@ -1232,7 +1232,7 @@ def show_week1():
             1920 × 1080 × 3 bytes = 6,220,800 bytes ≈ 6.2 MB
             ```
             
-            ### 🔍 Resolusi
+            ### Resolusi
             
             **Definisi:**
             Jumlah pixel dalam dimensi width × height.
@@ -1263,7 +1263,7 @@ def show_week1():
         
         with pixel_col2:
             st.markdown("""
-            ### 📏 PPI vs DPI
+            ### PPI vs DPI
             
             **PPI (Pixels Per Inch):**
             - Display screens
@@ -1283,7 +1283,7 @@ def show_week1():
             PPI = √(width² + height²) / diagonal_inches
             ```
             
-            ### 📊 Aspect Ratio
+            ### Aspect Ratio
             
             **Definisi:**
             Rasio width terhadap height.
@@ -1296,7 +1296,7 @@ def show_week1():
             - **1:1** - Instagram square
             - **9:16** - Vertical video (TikTok, Stories)
             
-            ### 🎮 Frame Rate
+            ### Frame Rate
             
             **FPS (Frames Per Second):**
             Berapa kali gambar di-refresh per detik.
@@ -1318,7 +1318,7 @@ def show_week1():
         st.markdown("---")
         
         st.info("""
-        **💡 Persamaan Penting:**
+        **Persamaan Penting:**
         
         **Ukuran File Raster (uncompressed):**
         ```
@@ -1338,7 +1338,7 @@ def show_week1():
     st.markdown("---")
     
     # --- Image Section (with error handling) --- #
-    st.markdown("### 🖼️ Visualisasi Grafika Komputer")
+    st.markdown("### Visualisasi Grafika Komputer")
     
     st.markdown("""
     Berikut adalah contoh aplikasi nyata dari konsep-konsep grafika komputer 
@@ -1358,7 +1358,7 @@ def show_week1():
                 st.image(image, caption="Contoh Aplikasi Grafika Komputer", use_container_width=True)
             
             with img_col2:
-                st.markdown("**📊 Informasi Gambar:**")
+                st.markdown("**Informasi Gambar:**")
                 width, height = image.size
                 mode = image.mode
                 
@@ -1374,28 +1374,28 @@ def show_week1():
         else:
             st.warning(f"⚠️ Gambar tidak ditemukan di: `{image_path}`")
             st.info("""
-            **💡 Tips Struktur Folder:**
+            **Tips Struktur Folder:**
             ```
             uts-grafkom/
             ├── assets/
             │   └── images/
             │       └── IU.jpeg
             └── pages/
-                └── 2_📚_Week1_Pengantar.py
+                └── 2_Week1_Pengantar.py
             ```
             
             Pastikan path relatif sesuai dengan struktur folder Anda.
             """)
     except Exception as e:
         st.error(f"❌ Error memuat gambar: {e}")
-        st.info("💡 Gambar akan ditampilkan setelah masalah dependency atau path teratasi.")
+        st.info("Gambar akan ditampilkan setelah masalah dependency atau path teratasi.")
     
     st.markdown("---")
     
     # --- Quiz/Review Section --- #
-    with st.expander("📝 **Uji Pemahaman Anda**", expanded=False):
+    with st.expander("**Uji Pemahaman Anda**", expanded=False):
         st.markdown("""
-        ### 🎯 Pertanyaan Review:
+        ### Pertanyaan Review:
         
         **Sejarah & Evolusi:**
         1. Siapa yang menciptakan Sketchpad dan mengapa sistem ini dianggap revolusioner?
@@ -1423,9 +1423,9 @@ def show_week1():
         **Pixel & Resolusi:**
         14. Hitung ukuran file uncompressed untuk gambar 4K (3840×2160) dengan 32-bit color!
         15. Apa perbedaan antara PPI dan DPI? Kapan masing-masing digunakan?
-        
-        ### 🚀 Aktivitas Praktis:
-        
+
+        ### Aktivitas Praktis:
+
         **Eksplorasi Harian:**
         - Identifikasi 10 aplikasi grafika komputer yang Anda gunakan hari ini
         - Amati interface smartphone Anda - elemen mana yang raster, mana yang vektor?
@@ -1442,24 +1442,24 @@ def show_week1():
         """)
     
     # --- Additional Resources --- #
-    with st.expander("📚 **Sumber Belajar Tambahan**", expanded=False):
+    with st.expander("**Sumber Belajar Tambahan**", expanded=False):
         resource_col1, resource_col2 = st.columns(2)
         
         with resource_col1:
             st.markdown("""
-            **📖 Buku Referensi:**
+            **Buku Referensi:**
             - *Computer Graphics: Principles and Practice* (Foley et al.) - Bible of CG
             - *Real-Time Rendering* (Akenine-Möller et al.) - Modern techniques
             - *Fundamentals of Computer Graphics* (Shirley & Marschner)
             - *The Nature of Code* (Daniel Shiffman) - Creative coding
-            
-            **🌐 Website & Tutorial:**
+
+            **Website & Tutorial:**
             - [LearnOpenGL.com](https://learnopengl.com) - Modern OpenGL
             - [Scratchapixel](https://www.scratchapixel.com) - CG dari dasar
             - [3Blue1Brown](https://www.3blue1brown.com) - Linear algebra visual
             - [Khan Academy - Pixar in a Box](https://www.khanacademy.org/computing/pixar)
-            
-            **📺 YouTube Channels:**
+
+            **YouTube Channels:**
             - Sebastian Lague - Programming & CG
             - The Cherno - Game engine development
             - Acerola - Graphics programming deep dives
@@ -1467,18 +1467,18 @@ def show_week1():
         
         with resource_col2:
             st.markdown("""
-            **🎓 Online Courses:**
+            **Online Courses:**
             - Udacity - Interactive 3D Graphics
             - Coursera - Computer Graphics (UC San Diego)
             - edX - Computer Graphics (UC Berkeley)
-            
-            **🛠️ Tools untuk Eksplorasi:**
+
+            **Tools untuk Eksplorasi:**
             - **Shadertoy:** Eksperimen dengan shaders
             - **Blender:** 3D modeling & rendering (free!)
             - **Unity/Unreal:** Game engine dengan dokumentasi lengkap
             - **Processing/p5.js:** Creative coding platform
-            
-            **👥 Komunitas:**
+
+            **Komunitas:**
             - r/computergraphics - Reddit community
             - SIGGRAPH - Annual conference & papers
             - Polycount - 3D artist forum
@@ -1487,7 +1487,7 @@ def show_week1():
     
     # --- Navigation Tips --- #
     st.success("""
-    ✅ **Selamat! Anda telah menyelesaikan Minggu 1**
+    **Selamat! Anda telah menyelesaikan Minggu 1**
     
     Anda sekarang memiliki fondasi yang kuat tentang:
     - Sejarah dan evolusi grafika komputer
@@ -1495,7 +1495,7 @@ def show_week1():
     - Konsep fundamental: raster vs vektor, rendering pipeline, coordinate systems
     - Model warna dan representasi pixel
     
-    **📌 Next Steps:**
+    **Next Steps:**
     - **Minggu 2:** Transformasi Geometri 2D - Belajar memanipulasi objek menggunakan matriks
     - **Minggu 3:** Algoritma Garis - Implementasi DDA dan Bresenham
     - **Minggu 4+:** Polygon filling, color models, shading, dan texture mapping

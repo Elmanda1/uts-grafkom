@@ -298,43 +298,43 @@ DEFAULT_LINE_WIDTH = 2
 WEEK_TOPICS = {
     1: {
         "title": "Pengantar Grafika Komputer",
-        "icon": "📚",
+        "icon": "",
         "difficulty": "Beginner",
         "topics": ["Sejarah", "Aplikasi", "Konsep Dasar", "Pipeline Rendering"]
     },
     2: {
         "title": "Transformasi 2D",
-        "icon": "🔄",
+        "icon": "",
         "difficulty": "Beginner",
         "topics": ["Translasi", "Rotasi", "Skala", "Shear", "Matriks"]
     },
     3: {
         "title": "Algoritma Garis & Lingkaran",
-        "icon": "📏",
+        "icon": "",
         "difficulty": "Intermediate",
         "topics": ["DDA", "Bresenham Line", "Bresenham Circle", "Midpoint"]
     },
     4: {
         "title": "Polygon Filling",
-        "icon": "🎨",
+        "icon": "",
         "difficulty": "Intermediate",
         "topics": ["Scanline", "Flood Fill", "Boundary Fill"]
     },
     5: {
         "title": "Model Warna & Pencahayaan",
-        "icon": "🌈",
+        "icon": "",
         "difficulty": "Intermediate",
         "topics": ["RGB", "HSV", "CMYK", "Lighting Models"]
     },
     6: {
         "title": "Shading Models",
-        "icon": "💡",
+        "icon": "",
         "difficulty": "Advanced",
         "topics": ["Flat Shading", "Gouraud", "Phong"]
     },
     7: {
         "title": "Texture Mapping",
-        "icon": "🖼️",
+        "icon": "",
         "difficulty": "Advanced",
         "topics": ["UV Mapping", "Filtering", "Wrapping"]
     }

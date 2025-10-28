@@ -27,7 +27,7 @@ except Exception as e:
 # --- Hero Section --- #
 st.markdown("""
     <div class="header-container">
-        <h1>📏 Algoritma Penggambaran Garis</h1>
+        <h1>Algoritma Penggambaran Garis</h1>
         <p class="subtitle">Visualisasi dan perbandingan algoritma DDA vs Bresenham</p>
     </div>
 """, unsafe_allow_html=True)
@@ -38,7 +38,7 @@ st.markdown("---")
 intro_col1, intro_col2 = st.columns([3, 2])
 
 with intro_col1:
-    st.markdown("### 🎯 Tujuan Pembelajaran")
+    st.markdown("### Tujuan Pembelajaran")
     st.markdown("""
     Pada minggu ini, Anda akan mempelajari dua algoritma fundamental untuk 
     menggambar garis pada layar raster:
@@ -52,7 +52,7 @@ with intro_col1:
 
 with intro_col2:
     st.info("""
-    ### 📌 Petunjuk Penggunaan
+    ### Petunjuk Penggunaan
     
     **Langkah-langkah:**
     
@@ -68,7 +68,7 @@ with intro_col2:
 st.markdown("---")
 
 # --- Sidebar Kontrol--- #
-st.sidebar.markdown("### ⚙️ Pengaturan Garis")
+st.sidebar.markdown("### Pengaturan Garis")
 algo_choice = st.sidebar.selectbox(
     "Pilih Algoritma",
     ["Bresenham", "DDA", "Keduanya untuk Perbandingan"],
@@ -76,15 +76,15 @@ algo_choice = st.sidebar.selectbox(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 📊 Informasi Koordinat")
+st.sidebar.markdown("### Informasi Koordinat")
 
 # --- Konsep Section --- #
-with st.expander("📖 **Konsep: Algoritma Garis**", expanded=False):
+with st.expander("**Konsep: Algoritma Garis**", expanded=False):
     concept_col1, concept_col2 = st.columns(2)
     
     with concept_col1:
         st.markdown("""
-        **🔵 Algoritma DDA**
+        **Algoritma DDA**
         
         Digital Differential Analyzer menggunakan pendekatan increment untuk 
         menggambar garis. Prinsip kerjanya:
@@ -99,7 +99,7 @@ with st.expander("📖 **Konsep: Algoritma Garis**", expanded=False):
     
     with concept_col2:
         st.markdown("""
-        **🔴 Algoritma Bresenham**
+        **Algoritma Bresenham**
         
         Bresenham menggunakan decision parameter berbasis integer untuk 
         menentukan pixel mana yang harus dinyalakan:
@@ -115,13 +115,13 @@ with st.expander("📖 **Konsep: Algoritma Garis**", expanded=False):
 st.markdown("---")
 
 # --- Canvas Section --- #
-st.markdown("### 🎨 Canvas Interaktif")
-st.info("👆 Klik **dua titik** pada canvas di bawah ini untuk menggambar garis")
+st.markdown("### Canvas Interaktif")
+st.info("Klik **dua titik** pada canvas di bawah ini untuk menggambar garis")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("#### 📥 Canvas Input")
+    st.markdown("#### Canvas Input")
     canvas_result = setup_canvas(
         drawing_mode='line',
         stroke_color='cyan',
@@ -137,12 +137,12 @@ if canvas_result.json_data and len(canvas_result.json_data["objects"]) > 0:
         x1, y1 = int(last_object['left']), int(last_object['top'])
         x2, y2 = int(x1 + last_object['width']), int(y1 + last_object['height'])
 
-        st.sidebar.markdown(f"**📍 Titik A:** `({x1}, {y1})`")
-        st.sidebar.markdown(f"**📍 Titik B:** `({x2}, {y2})`")
+        st.sidebar.markdown(f"**Titik A:** `({x1}, {y1})`")
+        st.sidebar.markdown(f"**Titik B:** `({x2}, {y2})`")
         
         # Hitung panjang garis
         length = np.sqrt((x2 - x1)**2 + (y2 - y1)**2)
-        st.sidebar.markdown(f"**📏 Panjang Garis:** `{length:.2f} px`")
+        st.sidebar.markdown(f"**Panjang Garis:** `{length:.2f} px`")
 
         # Buat gambar kosong untuk visualisasi hasil
         img = Image.new("RGB", (CANVAS_WIDTH // 2, CANVAS_HEIGHT), color="black")
@@ -170,44 +170,44 @@ if canvas_result.json_data and len(canvas_result.json_data["objects"]) > 0:
             bres_result, bres_pixels = run_and_draw(bresenham_line, "Bresenham", "#FF4B4B")
             if algo_choice != "Keduanya untuk Perbandingan":
                 with col2:
-                    st.markdown("#### 📤 Hasil Algoritma Bresenham")
+                    st.markdown("#### Hasil Algoritma Bresenham")
                     st.image(img, caption="Garis menggunakan Algoritma Bresenham")
-                    
-                    st.markdown("##### 📊 Metrik Performa")
+
+                    st.markdown("##### Metrik Performa")
                     show_performance_metrics(
                         "Bresenham Line", 
                         bres_result['execution_time_ms'], 
                         bres_result['operations']
                     )
                     
-                    st.success(f"✅ **{len(bres_pixels)} pixel** telah digambar")
+                    st.success(f"**{len(bres_pixels)} pixel** telah digambar")
 
         if algo_choice == "DDA" or algo_choice == "Keduanya untuk Perbandingan":
             dda_result, dda_pixels = run_and_draw(dda_line, "DDA", "#00C853")
             if algo_choice != "Keduanya untuk Perbandingan":
                 with col2:
-                    st.markdown("#### 📤 Hasil Algoritma DDA")
+                    st.markdown("#### Hasil Algoritma DDA")
                     st.image(img, caption="Garis menggunakan Algoritma DDA")
-                    
-                    st.markdown("##### 📊 Metrik Performa")
+
+                    st.markdown("##### Metrik Performa")
                     show_performance_metrics(
                         "DDA",
                         dda_result['execution_time_ms'],
                         dda_result['operations']
                     )
                     
-                    st.success(f"✅ **{len(dda_pixels)} pixel** telah digambar")
+                    st.success(f"**{len(dda_pixels)} pixel** telah digambar")
         
         if algo_choice == "Keduanya untuk Perbandingan":
             with col2:
-                st.markdown("#### 📤 Hasil Perbandingan")
+                st.markdown("#### Hasil Perbandingan")
                 st.image(img, caption="🔴 Merah: Bresenham | 🟢 Hijau: DDA")
                 
-                st.markdown("##### 📊 Perbandingan Metrik")
+                st.markdown("##### Perbandingan Metrik")
                 compare_algorithms(metrics_to_compare)
                 
                 # Analisis tambahan
-                st.markdown("##### 🔍 Analisis")
+                st.markdown("##### Analisis")
                 
                 analysis_col1, analysis_col2 = st.columns(2)
                 with analysis_col1:
@@ -222,13 +222,13 @@ if canvas_result.json_data and len(canvas_result.json_data["objects"]) > 0:
 
 else:
     with col2:
-        st.markdown("#### 📤 Hasil Visualisasi")
-        st.info("👈 Silakan gambar garis di canvas sebelah kiri untuk melihat hasil visualisasi")
+        st.markdown("#### Hasil Visualisasi")
+        st.info("Silakan gambar garis di canvas sebelah kiri untuk melihat hasil visualisasi")
 
 st.markdown("---")
 
 # --- Perbandingan Detail --- #
-with st.expander("⚖️ **Perbandingan Mendalam: DDA vs Bresenham**", expanded=False):
+with st.expander("**Perbandingan Mendalam: DDA vs Bresenham**", expanded=False):
     comp_col1, comp_col2 = st.columns(2)
     
     with comp_col1:
@@ -260,9 +260,9 @@ with st.expander("⚖️ **Perbandingan Mendalam: DDA vs Bresenham**", expanded=
 st.markdown("---")
 
 # --- Implementasi Kode --- #
-st.markdown("### 💻 Implementasi Kode")
+st.markdown("### Implementasi Kode")
 
-with st.expander("📝 **Lihat Kode Implementasi Algoritma**", expanded=False):
+with st.expander("**Lihat Kode Implementasi Algoritma**", expanded=False):
     st.markdown("""
     Berikut adalah implementasi lengkap dari kedua algoritma garis. 
     Perhatikan perbedaan penggunaan operasi floating-point di DDA 
@@ -331,7 +331,7 @@ def bresenham_line(x1, y1, x2, y2):
 st.markdown("---")
 
 # --- Resources Section --- #
-with st.expander("📚 **Sumber Belajar Tambahan**", expanded=False):
+with st.expander("**Sumber Belajar Tambahan**", expanded=False):
     resource_col1, resource_col2 = st.columns(2)
     
     with resource_col1:

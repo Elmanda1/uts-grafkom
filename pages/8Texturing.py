@@ -493,10 +493,10 @@ with st.expander("⚖️ **Perbandingan Metode Filtering**", expanded=False):
         
         | Method | Speed | Memory | Quality |
         |--------|-------|--------|---------|
-        | Nearest | ⚡⚡⚡ | 💾 | ⭐⭐ |
-        | Bilinear | ⚡⚡ | 💾 | ⭐⭐⭐ |
-        | Trilinear | ⚡ | 💾💾💾 | ⭐⭐⭐⭐ |
-        | Anisotropic | ⚡ | 💾💾💾 | ⭐⭐⭐⭐⭐ |
+        | Nearest | High | Low | Fair |
+        | Bilinear | Medium | Low | Good |
+        | Trilinear | Low | High | Very Good |
+        | Anisotropic | Low | High | Excellent |
         """)
     
     with comparison_col2:
