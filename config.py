@@ -6,8 +6,8 @@ from typing import Dict, Any
 # ============================================================================
 
 PAGE_CONFIG: Dict[str, Any] = {
-    "page_title": "Belajar Grafika Komputer",
-    "page_icon": "🎨",
+    "page_title": "UTS - Grafika Komputer",
+    "page_icon": "🖥️",
     "layout": "wide",
     "initial_sidebar_state": "expanded",
     "menu_items": {
