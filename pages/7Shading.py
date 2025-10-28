@@ -26,7 +26,7 @@ except Exception as e:
 # --- Hero Section --- #
 st.markdown("""
     <div class="header-container">
-        <h1>💡 Teknik Shading</h1>
+        <h1>Teknik Shading</h1>
         <p class="subtitle">Perbandingan visual teknik Flat, Gouraud, dan Phong Shading pada objek 3D</p>
     </div>
 """, unsafe_allow_html=True)
@@ -37,7 +37,7 @@ st.markdown("---")
 intro_col1, intro_col2 = st.columns([3, 2])
 
 with intro_col1:
-    st.markdown("### 🎯 Tujuan Pembelajaran")
+    st.markdown("Tujuan Pembelajaran")
     st.markdown("""
     Pada minggu ini, Anda akan mempelajari tiga teknik shading fundamental 
     dalam grafika komputer untuk rendering objek 3D:
@@ -51,7 +51,7 @@ with intro_col1:
 
 with intro_col2:
     st.info("""
-    ### 📌 Petunjuk Penggunaan
+    ###  Petunjuk Penggunaan
     
     **Langkah-langkah:**
     
@@ -85,7 +85,7 @@ def load_object_data(file_path: str):
         return [], []
 
 # --- Sidebar Kontrol --- #
-st.sidebar.markdown("### ⚙️ Pengaturan Shading")
+st.sidebar.markdown("### Pengaturan Shading")
 shading_type = st.sidebar.selectbox(
     "Pilih Teknik Shading",
     ["Flat", "Gouraud", "Phong (Simulasi)"],
@@ -93,45 +93,45 @@ shading_type = st.sidebar.selectbox(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 💡 Pengaturan Cahaya")
+st.sidebar.markdown("###  Pengaturan Cahaya")
 
 light_color_hex = st.sidebar.color_picker("Warna Cahaya", "#FFFFFF")
 light_color = tuple(int(light_color_hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))
 
 st.sidebar.markdown("**Posisi Cahaya (XYZ)**")
 light_pos = np.array([
-    st.sidebar.slider("📍 Light X", -5.0, 5.0, 2.0, 0.1),
-    st.sidebar.slider("📍 Light Y", -5.0, 5.0, 2.0, 0.1),
-    st.sidebar.slider("📍 Light Z", -5.0, 5.0, 5.0, 0.1)
+    st.sidebar.slider(" Light X", -5.0, 5.0, 2.0, 0.1),
+    st.sidebar.slider(" Light Y", -5.0, 5.0, 2.0, 0.1),
+    st.sidebar.slider(" Light Z", -5.0, 5.0, 5.0, 0.1)
 ])
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 🎨 Properti Material")
+st.sidebar.markdown("###  Properti Material")
 
 material = {
-    'ka': st.sidebar.slider("🌙 Ambient (ka)", 0.0, 1.0, 0.1, 0.05, 
+    'ka': st.sidebar.slider(" Ambient (ka)", 0.0, 1.0, 0.1, 0.05, 
                             help="Cahaya lingkungan dasar"),
-    'kd': st.sidebar.slider("☀️ Diffuse (kd)", 0.0, 1.0, 0.7, 0.05,
+    'kd': st.sidebar.slider(" Diffuse (kd)", 0.0, 1.0, 0.7, 0.05,
                             help="Refleksi cahaya tersebar"),
-    'ks': st.sidebar.slider("✨ Specular (ks)", 0.0, 1.0, 0.5, 0.05,
+    'ks': st.sidebar.slider(" Specular (ks)", 0.0, 1.0, 0.5, 0.05,
                             help="Pantulan mengkilap"),
-    'shininess': st.sidebar.slider("💎 Shininess", 1, 256, 32,
+    'shininess': st.sidebar.slider(" Shininess", 1, 256, 32,
                                    help="Tingkat kilau permukaan")
 }
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 📊 Informasi")
+st.sidebar.markdown("### Informasi")
 st.sidebar.markdown(f"**Teknik:** `{shading_type}`")
 st.sidebar.markdown(f"**Cahaya:** `RGB{light_color}`")
 st.sidebar.markdown(f"**Posisi:** `({light_pos[0]:.1f}, {light_pos[1]:.1f}, {light_pos[2]:.1f})`")
 
 # --- Konsep Section --- #
-with st.expander("📖 **Konsep: Teknik Shading**", expanded=False):
+with st.expander(" **Konsep: Teknik Shading**", expanded=False):
     concept_col1, concept_col2, concept_col3 = st.columns(3)
     
     with concept_col1:
         st.markdown("""
-        **🔷 Flat Shading**
+        ** Flat Shading**
         
         Teknik paling sederhana dan tercepat:
         
@@ -147,7 +147,7 @@ with st.expander("📖 **Konsep: Teknik Shading**", expanded=False):
     
     with concept_col2:
         st.markdown("""
-        **🔶 Gouraud Shading**
+        ** Gouraud Shading**
         
         Interpolasi warna dari vertex:
         
@@ -163,7 +163,7 @@ with st.expander("📖 **Konsep: Teknik Shading**", expanded=False):
     
     with concept_col3:
         st.markdown("""
-        **🔸 Phong Shading**
+        ** Phong Shading**
         
         Teknik paling realistis:
         
@@ -180,8 +180,8 @@ with st.expander("📖 **Konsep: Teknik Shading**", expanded=False):
 st.markdown("---")
 
 # --- Logika Utama & Visualisasi ---
-st.markdown("### 🎨 Visualisasi Objek 3D")
-st.info(f"🎭 Menampilkan objek dengan **{shading_type} Shading** - Klik dan drag untuk merotasi")
+st.markdown("###  Visualisasi Objek 3D")
+st.info(f" Menampilkan objek dengan **{shading_type} Shading** - Klik dan drag untuk merotasi")
 
 # Memuat data objek (misal: kubus atau teapot)
 vertices, polygons = load_object_data("assets/data/sample_objects.json")
@@ -190,7 +190,7 @@ if vertices and polygons:
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.markdown("#### 📤 Hasil Rendering 3D")
+        st.markdown("####  Hasil Rendering 3D")
         
         # Ekstrak posisi vertex untuk plotting
         x_coords = [v['position'][0] for v in vertices]
@@ -268,22 +268,22 @@ if vertices and polygons:
         )
 
         st.plotly_chart(fig, use_container_width=True)
-        st.success(f"✨ Rendering dengan **{shading_type}** berhasil!")
+        st.success(f" Rendering dengan **{shading_type}** berhasil!")
     
     with col2:
-        st.markdown("#### 📊 Statistik Objek")
+        st.markdown("####  Statistik Objek")
         
         st.metric("Total Vertices", len(vertices))
         st.metric("Total Poligon", len(polygons))
         st.metric("Total Edges", len(polygons) * 3)
         
         st.markdown("---")
-        st.markdown("#### 🎮 Kontrol Interaktif")
+        st.markdown("####  Kontrol Interaktif")
         st.markdown("""
         **Mouse Controls:**
-        - 🖱️ **Drag**: Rotasi objek
-        - 🔍 **Scroll**: Zoom in/out
-        - 🤏 **Right-drag**: Pan kamera
+        -  **Drag**: Rotasi objek
+        -  **Scroll**: Zoom in/out
+        -  **Right-drag**: Pan kamera
         
         **Tips:**
         - Coba rotasi untuk lihat efek shading
@@ -328,36 +328,36 @@ with st.expander("⚖️ **Perbandingan Mendalam: Flat vs Gouraud vs Phong**", e
     
     with comp_col1:
         st.markdown("""
-        **🔷 Flat Shading**
+        ** Flat Shading**
         
         **Kelebihan:**
-        - ✅ Tercepat untuk dihitung
-        - ✅ Sederhana & efisien memori
-        - ✅ Cocok untuk low-poly art
-        - ✅ Ideal untuk wireframe preview
+        -  Tercepat untuk dihitung
+        -  Sederhana & efisien memori
+        -  Cocok untuk low-poly art
+        -  Ideal untuk wireframe preview
         
         **Kekurangan:**
-        - ❌ Tampilan "faceted" kasar
-        - ❌ Tidak ada gradasi halus
-        - ❌ Kurang realistis
+        -  Tampilan "faceted" kasar
+        -  Tidak ada gradasi halus
+        -  Kurang realistis
         
         **Use Case:** Prototype, stylized art
         """)
     
     with comp_col2:
         st.markdown("""
-        **🔶 Gouraud Shading**
+        ** Gouraud Shading**
         
         **Kelebihan:**
-        - ✅ Lebih halus dari Flat
-        - ✅ Performa masih bagus
-        - ✅ Standar untuk real-time rendering
-        - ✅ Balance kualitas-kecepatan
+        -  Lebih halus dari Flat
+        -  Performa masih bagus
+        -  Standar untuk real-time rendering
+        -  Balance kualitas-kecepatan
         
         **Kekurangan:**
-        - ❌ Highlight specular tidak akurat
-        - ❌ Mach banding effect
-        - ❌ Detail hilang di tengah polygon
+        -  Highlight specular tidak akurat
+        -  Mach banding effect
+        -  Detail hilang di tengah polygon
         
         **Use Case:** Games, real-time apps
         """)
@@ -367,15 +367,15 @@ with st.expander("⚖️ **Perbandingan Mendalam: Flat vs Gouraud vs Phong**", e
         **🔸 Phong Shading**
         
         **Kelebihan:**
-        - ✅ Paling realistis
-        - ✅ Highlight specular akurat
-        - ✅ Detail tinggi per pixel
-        - ✅ Standar industri high-end
+        -  Paling realistis
+        -  Highlight specular akurat
+        -  Detail tinggi per pixel
+        -  Standar industri high-end
         
         **Kekurangan:**
-        - ❌ Paling lambat
-        - ❌ Intensif komputasi
-        - ❌ Memerlukan hardware kuat
+        -  Paling lambat
+        -  Intensif komputasi
+        -  Memerlukan hardware kuat
         
         **Use Case:** Film, high-quality rendering
         """)
@@ -389,33 +389,33 @@ technique_col1, technique_col2 = st.columns(2)
 
 with technique_col1:
     st.markdown("""
-    #### 🔍 Cara Kerja Setiap Teknik
+    ####  Cara Kerja Setiap Teknik
     
     **1. Flat Shading**
     - Model pencahayaan diterapkan **sekali per poligon**
     - Menggunakan normal rata-rata dari face
     - Seluruh poligon diwarnai dengan satu warna solid
     - Hasil: Tampilan "faceted" atau kotak-kotak
-    - Kecepatan: Sangat cepat ⚡⚡⚡
+    - Kecepatan: Sangat cepat 
     
     **2. Gouraud Shading**
     - Model pencahayaan diterapkan pada **setiap vertex**
     - Warna di vertex diinterpolasi linear di permukaan
     - Menghasilkan gradasi halus antar vertex
     - Hasil: Lebih halus, tapi kehilangan detail specular
-    - Kecepatan: Cepat ⚡⚡
+    - Kecepatan: Cepat 
     
     **3. Phong Shading**
     - **Vektor normal** diinterpolasi di permukaan
     - Model pencahayaan diterapkan **per pixel/fragment**
     - Menggunakan normal yang telah diinterpolasi
     - Hasil: Paling realistis dengan highlight akurat
-    - Kecepatan: Lambat ⚡
+    - Kecepatan: Lambat 
     """)
 
 with technique_col2:
     st.markdown("""
-    #### 📐 Formula Matematika
+    ####  Formula Matematika
     
     **Interpolasi Gouraud:**
     ```
@@ -448,9 +448,9 @@ with technique_col2:
 st.markdown("---")
 
 # --- Implementasi Kode --- #
-st.markdown("### 💻 Implementasi Kode")
+st.markdown("###  Implementasi Kode")
 
-with st.expander("📝 **Lihat Kode Implementasi Shading**", expanded=False):
+with st.expander(" **Lihat Kode Implementasi Shading**", expanded=False):
     st.markdown("""
     Berikut adalah implementasi lengkap dari ketiga teknik shading. 
     Perhatikan perbedaan dalam cara menghitung dan mengaplikasikan warna 
@@ -521,12 +521,12 @@ def gouraud_shading(polygon, vertices, light_color,
             code_content = f.read()
             st.code(code_content, language="python")
     except FileNotFoundError:
-        st.warning("⚠️ File `algorithms/shading.py` tidak ditemukan")
+        st.warning(" File `algorithms/shading.py` tidak ditemukan")
 
 st.markdown("---")
 
 # --- Resources Section --- #
-with st.expander("📚 **Sumber Belajar Tambahan**", expanded=False):
+with st.expander(" **Sumber Belajar Tambahan**", expanded=False):
     resource_col1, resource_col2 = st.columns(2)
     
     with resource_col1:
@@ -553,7 +553,7 @@ with st.expander("📚 **Sumber Belajar Tambahan**", expanded=False):
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #666; padding: 20px;'>
-    <p>💡 <strong>Tips:</strong> Bandingkan ketiga teknik dengan mengubah parameter yang sama untuk melihat perbedaan kualitas visual!</p>
+    <p> <strong>Tips:</strong> Bandingkan ketiga teknik dengan mengubah parameter yang sama untuk melihat perbedaan kualitas visual!</p>
     <p>Minggu 6: Teknik Shading | © 2025 Grafika Komputer</p>
 </div>
 """, unsafe_allow_html=True)

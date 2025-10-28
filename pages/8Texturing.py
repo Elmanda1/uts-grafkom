@@ -20,12 +20,12 @@ st.set_page_config(**PAGE_CONFIG)
 try:
     load_css("assets/styles/custom.css")
 except Exception as e:
-    st.warning(f"⚠️ CSS kustom tidak dimuat: {e}")
+    st.warning(f" CSS kustom tidak dimuat: {e}")
 
 # --- Hero Section --- #
 st.markdown("""
     <div class="header-container">
-        <h1>🖼️ Pemetaan Tekstur</h1>
+        <h1>Pemetaan Tekstur</h1>
         <p class="subtitle">Eksplorasi texture mapping, koordinat UV, dan filtering untuk detail permukaan 3D</p>
     </div>
 """, unsafe_allow_html=True)
@@ -36,7 +36,7 @@ st.markdown("---")
 intro_col1, intro_col2 = st.columns([3, 2])
 
 with intro_col1:
-    st.markdown("### 🎯 Tujuan Pembelajaran")
+    st.markdown("###  Tujuan Pembelajaran")
     st.markdown("""
     Pada minggu ini, Anda akan mempelajari konsep fundamental tentang 
     texture mapping dalam grafika komputer 3D:
@@ -52,7 +52,7 @@ with intro_col1:
 
 with intro_col2:
     st.info("""
-    ### 📌 Petunjuk Penggunaan
+    ###  Petunjuk Penggunaan
     
     **Langkah-langkah:**
     
@@ -163,31 +163,31 @@ if 'texture_image' not in st.session_state:
         st.session_state.texture_source = "Checkerboard (Fallback)"
 
 # --- Sidebar Kontrol --- #
-st.sidebar.markdown("### ⚙️ Pengaturan Tekstur")
+st.sidebar.markdown("###  Pengaturan Tekstur")
 
 # Opsi upload tekstur
 uploaded_file = st.sidebar.file_uploader(
-    "📤 Unggah Tekstur Kustom", 
+    " Unggah Tekstur Kustom", 
     type=["png", "jpg", "jpeg"],
     help="Upload gambar PNG/JPG untuk digunakan sebagai tekstur"
 )
 if uploaded_file is not None:
     st.session_state.texture_image = Image.open(uploaded_file)
     st.session_state.texture_source = f"Custom ({uploaded_file.name})"
-    st.sidebar.success("✅ Tekstur kustom berhasil dimuat!")
+    st.sidebar.success(" Tekstur kustom berhasil dimuat!")
 
 # Reset to default
-if st.sidebar.button("🔄 Reset ke Default"):
+if st.sidebar.button(" Reset ke Default"):
     try:
         st.session_state.texture_image = Image.open("assets/images/IU.jpeg")
         st.session_state.texture_source = "Default (IU.jpeg)"
     except FileNotFoundError:
         st.session_state.texture_image = create_checkerboard_texture()
         st.session_state.texture_source = "Checkerboard (Fallback)"
-    st.sidebar.success("✅ Tekstur direset!")
+    st.sidebar.success(" Tekstur direset!")
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 🎨 Filter Tekstur")
+st.sidebar.markdown("###  Filter Tekstur")
 
 # Opsi filtering
 texture_filtering = st.sidebar.selectbox(
@@ -198,7 +198,7 @@ texture_filtering = st.sidebar.selectbox(
 
 # Texture info
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 📊 Informasi Tekstur")
+st.sidebar.markdown("###  Informasi Tekstur")
 texture_width, texture_height = st.session_state.texture_image.size
 st.sidebar.markdown(f"**Sumber:** `{st.session_state.texture_source}`")
 st.sidebar.markdown(f"**Resolusi:** `{texture_width} × {texture_height}px`")
@@ -207,16 +207,16 @@ st.sidebar.markdown(f"**Filter:** `{texture_filtering}`")
 
 # Preview tekstur
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 👁️ Preview Tekstur")
+st.sidebar.markdown("###  Preview Tekstur")
 st.sidebar.image(st.session_state.texture_image, caption="Tekstur Saat Ini", use_column_width=True)
 
 # --- Konsep Section --- #
-with st.expander("📖 **Konsep: Texture Mapping**", expanded=False):
+with st.expander("**Konsep: Texture Mapping**", expanded=False):
     concept_col1, concept_col2, concept_col3 = st.columns(3)
     
     with concept_col1:
         st.markdown("""
-        **🖼️ Texture Mapping**
+        ** Texture Mapping**
         
         Proses menambahkan detail ke permukaan 3D:
         
@@ -236,7 +236,7 @@ with st.expander("📖 **Konsep: Texture Mapping**", expanded=False):
     
     with concept_col2:
         st.markdown("""
-        **📐 Koordinat UV**
+        ** Koordinat UV**
         
         Sistem koordinat 2D untuk pemetaan:
         
@@ -256,7 +256,7 @@ with st.expander("📖 **Konsep: Texture Mapping**", expanded=False):
     
     with concept_col3:
         st.markdown("""
-        **🔍 Texture Filtering**
+        ** Texture Filtering**
         
         Metode sampling tekstur:
         
@@ -280,22 +280,22 @@ with st.expander("📖 **Konsep: Texture Mapping**", expanded=False):
 st.markdown("---")
 
 # --- Main Content --- #
-st.markdown("### 🎨 Visualisasi Texture Mapping")
-st.info("👀 Lihat bagaimana tekstur 2D dipetakan ke objek 3D menggunakan koordinat UV")
+st.markdown("###  Visualisasi Texture Mapping")
+st.info(" Lihat bagaimana tekstur 2D dipetakan ke objek 3D menggunakan koordinat UV")
 
 # Load object data
 vertices, uvs, polygons = load_textured_object("assets/data/sample_objects.json")
 
 # Fallback ke default cube jika gagal load
 if vertices is None or uvs is None or polygons is None:
-    st.warning("⚠️ File tidak ditemukan. Menggunakan cube default.")
+    st.warning(" File tidak ditemukan. Menggunakan cube default.")
     vertices, uvs, polygons = create_default_cube()
 
 if uvs is not None and vertices is not None:
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown("#### 📥 UV Mapping pada Tekstur")
+        st.markdown("####  UV Mapping pada Tekstur")
         st.markdown("Garis cyan menunjukkan bagaimana poligon 3D 'dibuka' pada tekstur 2D")
         
         # Gambar UV map di atas tekstur
@@ -324,7 +324,7 @@ if uvs is not None and vertices is not None:
         st.image(uv_map_img, caption="UV Wireframe pada Tekstur", use_column_width=True)
         
         st.markdown("---")
-        st.markdown("**📌 Informasi UV:**")
+        st.markdown("** Informasi UV:**")
         st.markdown(f"- **Jumlah Vertices:** `{len(uvs)}`")
         st.markdown(f"- **Jumlah Polygons:** `{len(polygons)}`")
         st.markdown(f"- **UV Range:** U ∈ [0,1], V ∈ [0,1]")
@@ -336,7 +336,7 @@ if uvs is not None and vertices is not None:
         st.markdown(f"- **V min/max:** `{v_coords.min():.3f}` / `{v_coords.max():.3f}`")
 
     with col2:
-        st.markdown("#### 📤 Hasil Objek 3D dengan Tekstur")
+        st.markdown("####  Hasil Objek 3D dengan Tekstur")
         st.markdown(f"Rendering dengan **{texture_filtering}** filtering")
         
         # Buat mesh 3D dengan Plotly
@@ -376,19 +376,19 @@ if uvs is not None and vertices is not None:
         st.plotly_chart(fig, use_container_width=True)
         
         st.info("""
-        ℹ️ **Catatan:** Plotly memiliki keterbatasan dalam texture mapping. 
+        ℹ**Catatan:** Plotly memiliki keterbatasan dalam texture mapping. 
         Untuk hasil yang lebih akurat, gunakan WebGL atau game engine seperti Unity/Unreal.
         """)
         
         st.markdown("---")
-        st.markdown("**🎮 Kontrol:**")
-        st.markdown("- 🖱️ **Drag:** Rotasi objek")
-        st.markdown("- 🔍 **Scroll:** Zoom in/out")
-        st.markdown("- 🤏 **Right-drag:** Pan view")
+        st.markdown("** Kontrol:**")
+        st.markdown("-  **Drag:** Rotasi objek")
+        st.markdown("-  **Scroll:** Zoom in/out")
+        st.markdown("-  **Right-drag:** Pan view")
 
 else:
     st.error("""
-    ⚠️ **Data objek tidak ditemukan!**
+     **Data objek tidak ditemukan!**
     
     Pastikan file `assets/data/sample_objects.json` ada dan berisi:
     - Vertices dengan posisi 3D
@@ -399,14 +399,14 @@ else:
 st.markdown("---")
 
 # --- Perbandingan Filtering --- #
-with st.expander("⚖️ **Perbandingan Metode Filtering**", expanded=False):
+with st.expander(" **Perbandingan Metode Filtering**", expanded=False):
     st.markdown("### Karakteristik Setiap Metode Filtering")
     
     filter_col1, filter_col2, filter_col3 = st.columns(3)
     
     with filter_col1:
         st.markdown("""
-        **🔷 Nearest Neighbor**
+        ** Nearest Neighbor**
         
         **Cara Kerja:**
         - Ambil 1 pixel terdekat
@@ -414,15 +414,15 @@ with st.expander("⚖️ **Perbandingan Metode Filtering**", expanded=False):
         - Paling sederhana
         
         **Kelebihan:**
-        - ✅ Sangat cepat
-        - ✅ Tajam dan crisp
-        - ✅ Cocok untuk pixel art
-        - ✅ Minimal overhead
+        -  Sangat cepat
+        -  Tajam dan crisp
+        -  Cocok untuk pixel art
+        -  Minimal overhead
         
         **Kekurangan:**
-        - ❌ Blocky saat zoom in
-        - ❌ Pixelated appearance
-        - ❌ Aliasing artifacts
+        -  Blocky saat zoom in
+        -  Pixelated appearance
+        -  Aliasing artifacts
         
         **Use Case:**
         - Retro/pixel art games
@@ -432,7 +432,7 @@ with st.expander("⚖️ **Perbandingan Metode Filtering**", expanded=False):
     
     with filter_col2:
         st.markdown("""
-        **🔶 Bilinear Filtering**
+        ** Bilinear Filtering**
         
         **Cara Kerja:**
         - Sample 4 pixel terdekat
@@ -440,15 +440,15 @@ with st.expander("⚖️ **Perbandingan Metode Filtering**", expanded=False):
         - Weighted average
         
         **Kelebihan:**
-        - ✅ Lebih halus
-        - ✅ Mengurangi pixelation
-        - ✅ Balance speed-quality
-        - ✅ Widely supported
+        -  Lebih halus
+        -  Mengurangi pixelation
+        -  Balance speed-quality
+        -  Widely supported
         
         **Kekurangan:**
-        - ❌ Sedikit blur
-        - ❌ Moiré patterns
-        - ❌ Aliasing pada jarak jauh
+        -  Sedikit blur
+        -  Moiré patterns
+        -  Aliasing pada jarak jauh
         
         **Use Case:**
         - Most 3D games
@@ -458,7 +458,7 @@ with st.expander("⚖️ **Perbandingan Metode Filtering**", expanded=False):
     
     with filter_col3:
         st.markdown("""
-        **🔸 Trilinear Filtering**
+        ** Trilinear Filtering**
         
         **Cara Kerja:**
         - Menggunakan mipmaps
@@ -466,15 +466,15 @@ with st.expander("⚖️ **Perbandingan Metode Filtering**", expanded=False):
         - Bilinear pada 2 levels
         
         **Kelebihan:**
-        - ✅ Kualitas terbaik
-        - ✅ Mengurangi aliasing
-        - ✅ Better at distance
-        - ✅ Smooth LOD transition
+        -  Kualitas terbaik
+        -  Mengurangi aliasing
+        -  Better at distance
+        -  Smooth LOD transition
         
         **Kekurangan:**
-        - ❌ Lebih lambat
-        - ❌ Memerlukan memory (mipmaps)
-        - ❌ Masih ada blur
+        -  Lebih lambat
+        -  Memerlukan memory (mipmaps)
+        -  Masih ada blur
         
         **Use Case:**
         - High-quality rendering
@@ -489,7 +489,7 @@ with st.expander("⚖️ **Perbandingan Metode Filtering**", expanded=False):
     
     with comparison_col1:
         st.markdown("""
-        **📊 Performa (Relatif):**
+        ** Performa (Relatif):**
         
         | Method | Speed | Memory | Quality |
         |--------|-------|--------|---------|
@@ -501,7 +501,7 @@ with st.expander("⚖️ **Perbandingan Metode Filtering**", expanded=False):
     
     with comparison_col2:
         st.markdown("""
-        **🎯 Rekomendasi Penggunaan:**
+        ** Rekomendasi Penggunaan:**
         
         - **Mobile/Low-end:** Nearest or Bilinear
         - **Desktop/Console:** Bilinear or Trilinear
@@ -514,13 +514,13 @@ with st.expander("⚖️ **Perbandingan Metode Filtering**", expanded=False):
 st.markdown("---")
 
 # --- Penjelasan Konsep Detail --- #
-st.markdown("### 📚 Penjelasan Konsep Detail")
+st.markdown("###  Penjelasan Konsep Detail")
 
 concept_detail_col1, concept_detail_col2 = st.columns(2)
 
 with concept_detail_col1:
     st.markdown("""
-    #### 🖼️ Texture Mapping
+    ####  Texture Mapping
     
     **Definisi:**
     Proses menambahkan detail permukaan, warna, atau tekstur ke model 3D dengan 
@@ -551,7 +551,7 @@ with concept_detail_col1:
 
 with concept_detail_col2:
     st.markdown("""
-    #### 📐 Koordinat UV
+    ####  Koordinat UV
     
     **Definisi:**
     Sistem koordinat 2D (U, V) yang digunakan untuk memetakan tekstur ke permukaan 3D.
@@ -591,7 +591,7 @@ with st.expander("🔍 **Detail Texture Filtering**", expanded=False):
     
     with filtering_col1:
         st.markdown("""
-        **🔷 Nearest Neighbor (Point Sampling)**
+        ** Nearest Neighbor (Point Sampling)**
         
         **Algoritma:**
         ```python
@@ -622,7 +622,7 @@ with st.expander("🔍 **Detail Texture Filtering**", expanded=False):
         """)
         
         st.markdown("""
-        **🔶 Bilinear Filtering**
+        ** Bilinear Filtering**
         
         **Algoritma:**
         ```python
@@ -664,7 +664,7 @@ with st.expander("🔍 **Detail Texture Filtering**", expanded=False):
     
     with filtering_col2:
         st.markdown("""
-        **🔸 Trilinear Filtering**
+        ** Trilinear Filtering**
         
         **Konsep Mipmaps:**
         - Pre-computed texture pyramid
@@ -728,14 +728,14 @@ with st.expander("🔍 **Detail Texture Filtering**", expanded=False):
 st.markdown("---")
 
 # --- UV Unwrapping Techniques --- #
-with st.expander("🗺️ **Teknik UV Unwrapping**", expanded=False):
+with st.expander(" **Teknik UV Unwrapping**", expanded=False):
     st.markdown("### Strategi Unwrapping untuk Berbagai Objek")
     
     unwrap_col1, unwrap_col2 = st.columns(2)
     
     with unwrap_col1:
         st.markdown("""
-        **📦 Cube/Box Unwrapping:**
+        ** Cube/Box Unwrapping:**
         ```
         +---+---+---+---+
         | T | F | B | B |
@@ -750,13 +750,13 @@ with st.expander("🗺️ **Teknik UV Unwrapping**", expanded=False):
         - Easy to texture
         - Good for buildings, boxes
         
-        **🎾 Sphere Unwrapping:**
+        ** Sphere Unwrapping:**
         - **Cylindrical:** Good for poles (Earth globes)
         - **Cubic:** 6 faces like cube
         - **Equirectangular:** Panorama style
         - **Challenge:** Poles have distortion
         
-        **👤 Character Unwrapping:**
+        ** Character Unwrapping:**
         - **Symmetry:** Mirror left-right untuk save space
         - **Seams:** Hidden areas (under arms, back)
         - **Face:** Special attention, separate island
@@ -772,7 +772,7 @@ with st.expander("🗺️ **Teknik UV Unwrapping**", expanded=False):
     
     with unwrap_col2:
         st.markdown("""
-        **🔧 Unwrapping Methods:**
+        ** Unwrapping Methods:**
         
         **1. Planar Projection:**
         - Project from one direction (X, Y, or Z)
@@ -815,9 +815,9 @@ with st.expander("🗺️ **Teknik UV Unwrapping**", expanded=False):
 st.markdown("---")
 
 # --- Implementasi Kode --- #
-st.markdown("### 💻 Implementasi Kode")
+st.markdown("###  Implementasi Kode")
 
-with st.expander("📝 **Lihat Kode Implementasi Texture Sampling**", expanded=False):
+with st.expander(" **Lihat Kode Implementasi Texture Sampling**", expanded=False):
     st.markdown("""
     Berikut adalah implementasi manual texture sampling untuk educational purposes.
     Dalam praktik, GPU melakukan ini secara hardware-accelerated.
@@ -1048,14 +1048,14 @@ def calculate_lod(dudx, dudy, dvdx, dvdy, texture_size):
 st.markdown("---")
 
 # --- Real-World Applications --- #
-with st.expander("🌍 **Aplikasi Texture Mapping di Dunia Nyata**", expanded=False):
+with st.expander(" **Aplikasi Texture Mapping di Dunia Nyata**", expanded=False):
     st.markdown("### Penggunaan dalam Berbagai Industri")
     
     app_col1, app_col2 = st.columns(2)
     
     with app_col1:
         st.markdown("""
-        **🎮 Video Games:**
+        ** Video Games:**
         
         **Real-time Rendering:**
         - Character skins & clothing details
@@ -1076,7 +1076,7 @@ with st.expander("🌍 **Aplikasi Texture Mapping di Dunia Nyata**", expanded=Fa
         
         ---
         
-        **🎬 Film & Animation:**
+        ** Film & Animation:**
         
         **High-Quality Rendering:**
         - 4K-8K texture resolution
@@ -1091,7 +1091,7 @@ with st.expander("🌍 **Aplikasi Texture Mapping di Dunia Nyata**", expanded=Fa
         
         ---
         
-        **🏗️ Architecture & Visualization:**
+        ** Architecture & Visualization:**
         
         **Photorealistic Rendering:**
         - Building materials (wood, concrete, metal)
@@ -1104,7 +1104,7 @@ with st.expander("🌍 **Aplikasi Texture Mapping di Dunia Nyata**", expanded=Fa
     
     with app_col2:
         st.markdown("""
-        **🚗 Automotive & Product Design:**
+        ** Automotive & Product Design:**
         
         **Virtual Prototyping:**
         - Car paint & material simulation
@@ -1119,7 +1119,7 @@ with st.expander("🌍 **Aplikasi Texture Mapping di Dunia Nyata**", expanded=Fa
         
         ---
         
-        **🗺️ Mapping & GIS:**
+        ** Mapping & GIS:**
         
         **Geospatial Visualization:**
         - Satellite imagery texture mapping
@@ -1134,7 +1134,7 @@ with st.expander("🌍 **Aplikasi Texture Mapping di Dunia Nyata**", expanded=Fa
         
         ---
         
-        **🥽 VR/AR Applications:**
+        ** VR/AR Applications:**
         
         **Immersive Experiences:**
         - 360° panorama textures
@@ -1149,7 +1149,7 @@ with st.expander("🌍 **Aplikasi Texture Mapping di Dunia Nyata**", expanded=Fa
         
         ---
         
-        **🎨 Digital Art & NFTs:**
+        ** Digital Art & NFTs:**
         
         **Generative Art:**
         - Procedural texture generation
@@ -1161,14 +1161,14 @@ with st.expander("🌍 **Aplikasi Texture Mapping di Dunia Nyata**", expanded=Fa
 st.markdown("---")
 
 # --- Advanced Topics --- #
-with st.expander("🚀 **Topik Lanjutan: Advanced Texturing**", expanded=False):
+with st.expander(" **Topik Lanjutan: Advanced Texturing**", expanded=False):
     st.markdown("### Teknik Texturing Modern")
     
     advanced_col1, advanced_col2 = st.columns(2)
     
     with advanced_col1:
         st.markdown("""
-        **🎨 Physically Based Rendering (PBR):**
+        ** Physically Based Rendering (PBR):**
         
         **Material Model:**
         - **Albedo/Base Color:** Pure color (no lighting baked)
@@ -1193,7 +1193,7 @@ with st.expander("🚀 **Topik Lanjutan: Advanced Texturing**", expanded=False):
         
         ---
         
-        **🌊 Procedural Texturing:**
+        ** Procedural Texturing:**
         
         **Node-Based Generation:**
         - No image files needed
@@ -1222,7 +1222,7 @@ with st.expander("🚀 **Topik Lanjutan: Advanced Texturing**", expanded=False):
     
     with advanced_col2:
         st.markdown("""
-        **📦 Texture Compression:**
+        ** Texture Compression:**
         
         **Why Compress?**
         - Reduce memory usage (VRAM critical)
@@ -1243,7 +1243,7 @@ with st.expander("🚀 **Topik Lanjutan: Advanced Texturing**", expanded=False):
         
         ---
         
-        **🔄 Virtual Texturing:**
+        ** Virtual Texturing:**
         
         **Mega Textures (id Tech):**
         - One huge texture for entire world
@@ -1258,7 +1258,7 @@ with st.expander("🚀 **Topik Lanjutan: Advanced Texturing**", expanded=False):
         
         ---
         
-        **🤖 AI-Generated Textures:**
+        ** AI-Generated Textures:**
         
         **Modern Approaches:**
         - **Neural Style Transfer:** Apply art styles
@@ -1284,7 +1284,7 @@ with st.expander("🚀 **Topik Lanjutan: Advanced Texturing**", expanded=False):
     
     with normal_col1:
         st.markdown("""
-        **🔷 Normal Maps Explained:**
+        ** Normal Maps Explained:**
         
         **Concept:**
         - Store surface normal direction in RGB
@@ -1314,7 +1314,7 @@ with st.expander("🚀 **Topik Lanjutan: Advanced Texturing**", expanded=False):
     
     with normal_col2:
         st.markdown("""
-        **🔶 Creating Normal Maps:**
+        ** Creating Normal Maps:**
         
         **From High-Poly:**
         1. Sculpt high-detail model (ZBrush, Blender)
@@ -1357,7 +1357,7 @@ with st.expander("⚡ **Optimasi Performa Texturing**", expanded=False):
     
     with perf_col1:
         st.markdown("""
-        **✅ Texture Optimization:**
+        ** Texture Optimization:**
         
         **1. Resolution Management:**
         ```
@@ -1395,7 +1395,7 @@ with st.expander("⚡ **Optimasi Performa Texturing**", expanded=False):
     
     with perf_col2:
         st.markdown("""
-        **⚠️ Common Performance Pitfalls:**
+        ** Common Performance Pitfalls:**
         
         **1. Uncompressed Textures:**
         ```
@@ -1440,7 +1440,7 @@ with st.expander("⚡ **Optimasi Performa Texturing**", expanded=False):
 st.markdown("---")
 
 # --- Resources Section --- #
-with st.expander("📚 **Sumber Belajar Tambahan**", expanded=False):
+with st.expander(" **Sumber Belajar Tambahan**", expanded=False):
     resource_col1, resource_col2 = st.columns(2)
     
     with resource_col1:
@@ -1479,7 +1479,7 @@ with st.expander("📚 **Sumber Belajar Tambahan**", expanded=False):
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #666; padding: 20px;'>
-    <p>💡 <strong>Tips:</strong> Upload tekstur sendiri dan lihat bagaimana UV mapping mempengaruhi hasil akhir!</p>
+    <p> <strong>Tips:</strong> Upload tekstur sendiri dan lihat bagaimana UV mapping mempengaruhi hasil akhir!</p>
     <p>Minggu 7: Pemetaan Tekstur | © 2025 Grafika Komputer</p>
 </div>
 """, unsafe_allow_html=True)
