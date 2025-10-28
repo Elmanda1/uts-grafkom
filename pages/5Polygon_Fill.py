@@ -34,6 +34,78 @@ st.markdown("""
 
 st.markdown("---")
 
+# --- Alternative Manual Input ---
+with st.expander("⌨️ **Input Manual (Alternatif)**", expanded=False):
+    st.markdown("""
+    Jika canvas bermasalah, Anda dapat input vertices dan seed point secara manual.
+    """)
+    
+    manual_col1, manual_col2 = st.columns(2)
+    
+    with manual_col1:
+        st.markdown("**📐 Input Poligon Manual:**")
+        
+        # Predefined shapes
+        shape_choice = st.selectbox(
+            "Pilih bentuk predefined:",
+            ["Custom", "Segitiga", "Persegi", "Pentagon", "Bintang"]
+        )
+        
+        if shape_choice == "Segitiga":
+            st.session_state.polygon_vertices = [(100, 50), (200, 200), (50, 200)]
+            st.success("✅ Segitiga loaded")
+        elif shape_choice == "Persegi":
+            st.session_state.polygon_vertices = [(50, 50), (200, 50), (200, 200), (50, 200)]
+            st.success("✅ Persegi loaded")
+        elif shape_choice == "Pentagon":
+            import math
+            center_x, center_y, radius = 150, 150, 80
+            angles = [i * 2 * math.pi / 5 - math.pi/2 for i in range(5)]
+            st.session_state.polygon_vertices = [
+                (int(center_x + radius * math.cos(a)), int(center_y + radius * math.sin(a)))
+                for a in angles
+            ]
+            st.success("✅ Pentagon loaded")
+        elif shape_choice == "Bintang":
+            import math
+            center_x, center_y = 150, 150
+            outer_r, inner_r = 80, 30
+            points = []
+            for i in range(10):
+                angle = i * math.pi / 5 - math.pi / 2
+                r = outer_r if i % 2 == 0 else inner_r
+                points.append((int(center_x + r * math.cos(angle)), int(center_y + r * math.sin(angle))))
+            st.session_state.polygon_vertices = points
+            st.success("✅ Bintang loaded")
+        
+        if shape_choice == "Custom":
+            vertices_input = st.text_area(
+                "Input vertices (format: x1,y1 x2,y2 x3,y3):",
+                placeholder="100,50 200,200 50,200"
+            )
+            if st.button("Load Custom Vertices"):
+                try:
+                    pairs = vertices_input.strip().split()
+                    vertices = [tuple(map(int, p.split(','))) for p in pairs]
+                    if len(vertices) >= 3:
+                        st.session_state.polygon_vertices = vertices
+                        st.success(f"✅ {len(vertices)} vertices loaded!")
+                    else:
+                        st.error("Minimal 3 vertices diperlukan")
+                except:
+                    st.error("Format salah! Gunakan: x1,y1 x2,y2 x3,y3")
+    
+    with manual_col2:
+        st.markdown("**📍 Input Seed Point Manual:**")
+        seed_x = st.number_input("Seed X:", min_value=0, max_value=CANVAS_WIDTH, value=150)
+        seed_y = st.number_input("Seed Y:", min_value=0, max_value=CANVAS_HEIGHT, value=150)
+        
+        if st.button("Set Seed Point"):
+            st.session_state.seed_point = (int(seed_x), int(seed_y))
+            st.success(f"✅ Seed: ({seed_x}, {seed_y})")
+
+st.markdown("---")
+
 # --- Introduction Section --- #
 intro_col1, intro_col2 = st.columns([3, 2])
 
@@ -420,6 +492,8 @@ if 'polygon_vertices' not in st.session_state:
     st.session_state.polygon_vertices = []
 if 'seed_point' not in st.session_state:
     st.session_state.seed_point = None
+if 'debug_mode' not in st.session_state:
+    st.session_state.debug_mode = False
 
 # --- Sidebar Controls ---
 st.sidebar.markdown("### 🎛️ Pengaturan Poligon")
@@ -442,10 +516,27 @@ boundary_color_rgb = tuple(int(boundary_color_hex.lstrip('#')[i:i+2], 16) for i 
 st.sidebar.markdown("---")
 st.sidebar.markdown("#### 📊 Status Saat Ini")
 st.sidebar.metric("Titik Poligon", len(st.session_state.polygon_vertices))
+
+if st.session_state.polygon_vertices:
+    st.sidebar.success("✅ Poligon tersimpan")
+    with st.sidebar.expander("Lihat Vertices"):
+        for i, v in enumerate(st.session_state.polygon_vertices[:5]):
+            st.sidebar.code(f"V{i}: {v}")
+        if len(st.session_state.polygon_vertices) > 5:
+            st.sidebar.caption(f"... dan {len(st.session_state.polygon_vertices) - 5} lainnya")
+else:
+    st.sidebar.warning("⚠️ Belum ada poligon")
+
 if st.session_state.seed_point:
+    st.sidebar.success("✅ Seed tersimpan")
     st.sidebar.code(f"Seed: {st.session_state.seed_point}")
 else:
-    st.sidebar.warning("Seed belum dipilih")
+    st.sidebar.warning("⚠️ Seed belum dipilih")
+
+st.sidebar.markdown("---")
+
+# Debug toggle
+st.session_state.debug_mode = st.sidebar.checkbox("🐛 Debug Mode", st.session_state.debug_mode)
 
 if st.sidebar.button("🔄 Reset Semua", use_container_width=True):
     st.session_state.polygon_vertices = []
@@ -538,17 +629,63 @@ with canvas_col2:
 
 # --- Logika untuk memproses input canvas ---
 if canvas_result.json_data and canvas_result.json_data["objects"]:
-    last_obj = canvas_result.json_data["objects"][-1]
+    # Debug: tampilkan semua objects
+    all_objects = canvas_result.json_data["objects"]
     
-    if drawing_mode == 'polygon' and last_obj['type'] == 'polygon':
+    if st.session_state.debug_mode:
+        st.info(f"🐛 **Debug:** Canvas memiliki {len(all_objects)} object(s)")
+        with st.expander("Debug: Object Details"):
+            for i, obj in enumerate(all_objects):
+                st.json({
+                    f"Object {i}": {
+                        "type": obj.get('type', 'unknown'),
+                        "keys": list(obj.keys())[:5]
+                    }
+                })
+    
+    # Cari polygon objects untuk disimpan sebagai vertices
+    polygon_objects = [obj for obj in all_objects if obj.get('type') == 'polygon']
+    if polygon_objects and drawing_mode == 'polygon':
+        last_polygon = polygon_objects[-1]
         # Extract vertices dari path
-        st.session_state.polygon_vertices = [(int(p[1]), int(p[2])) for p in last_obj['path']]
-        st.success(f"✅ Poligon dengan **{len(st.session_state.polygon_vertices)} titik** disimpan!")
+        if 'path' in last_polygon:
+            st.session_state.polygon_vertices = [(int(p[1]), int(p[2])) for p in last_polygon['path']]
+            st.success(f"✅ Poligon dengan **{len(st.session_state.polygon_vertices)} titik** tersimpan!")
+    
+    # Cari point/circle untuk seed point
+    if drawing_mode == 'point':
+        last_obj = all_objects[-1]
+        obj_type = last_obj.get('type', '')
         
-    elif drawing_mode == 'point' and last_obj['type'] == 'circle':
-        # Canvas kadang return circle untuk point
-        st.session_state.seed_point = (int(last_obj['left']), int(last_obj['top']))
-        st.success(f"✅ Seed point diatur ke **{st.session_state.seed_point}**")
+        if obj_type == 'circle':
+            # Canvas menggunakan circle untuk point
+            x = int(last_obj.get('left', 0) + last_obj.get('radius', 0))
+            y = int(last_obj.get('top', 0) + last_obj.get('radius', 0))
+            st.session_state.seed_point = (x, y)
+            st.success(f"✅ Seed point: **{st.session_state.seed_point}**")
+        elif obj_type == 'path':
+            # Kadang point dijadikan path
+            if 'path' in last_obj and len(last_obj['path']) > 0:
+                first_point = last_obj['path'][0]
+                x, y = int(first_point[1]), int(first_point[2])
+                st.session_state.seed_point = (x, y)
+                st.success(f"✅ Seed point: **{st.session_state.seed_point}**")
+
+# Display current state for user awareness
+if st.session_state.polygon_vertices or st.session_state.seed_point:
+    state_col1, state_col2 = st.columns(2)
+    
+    with state_col1:
+        if st.session_state.polygon_vertices:
+            st.info(f"📐 **Poligon aktif:** {len(st.session_state.polygon_vertices)} vertices")
+        else:
+            st.warning("📐 **Belum ada poligon**")
+    
+    with state_col2:
+        if st.session_state.seed_point:
+            st.info(f"📍 **Seed aktif:** {st.session_state.seed_point}")
+        else:
+            st.warning("📍 **Belum ada seed**")
 
 st.markdown("---")
 
